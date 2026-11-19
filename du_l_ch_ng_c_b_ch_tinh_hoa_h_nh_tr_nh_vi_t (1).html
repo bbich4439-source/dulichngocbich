@@ -1,0 +1,3034 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Du Lịch Ngọc Bích - Tinh Hoa Hành Trình Việt | Đặt Tour Cao Cấp & Trợ Lý AI</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            emeraldDark: '#0F3D3E',
+            emeraldMid: '#144c4d',
+            champagne: '#C8A96A',
+            champagneLight: '#DFBE7E',
+            ivoryBg: '#FAF8F5'
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Be Vietnam Pro', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <!-- GOOGLE OAUTH SCRIPT -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body { font-family: 'Be Vietnam Pro', sans-serif; background-color: #FAF8F5; color: #1a1a1a; }
+    .font-serif { font-family: 'Playfair Display', serif; }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #C8A96A; border-radius: 4px; }
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+      50% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(220, 38, 38, 0); }
+    }
+    .call-btn-pulse { animation: pulseGlow 2s infinite; }
+  </style>
+</head>
+<body class="bg-[#FAF8F5] text-gray-800 antialiased selection:bg-[#C8A96A] selection:text-white">
+
+  <!-- TOP BAR -->
+  <header class="bg-[#0F3D3E] text-white text-xs py-2 px-4 shadow-sm">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center space-x-4">
+        <span><i class="fa-solid fa-phone-volume text-[#C8A96A] mr-1"></i> <span data-i18n="hotline">Hotline Tư Vấn 24/7</span>: <a href="tel:0397238981" class="text-[#C8A96A] font-bold hover:underline">0397238981</a></span>
+        <span class="hidden md:inline">|</span>
+        <span class="hidden md:inline"><i class="fa-solid fa-location-dot text-[#C8A96A] mr-1"></i> 280 An Dương Vương, P. Chợ Quán, TPHCM</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <div class="relative">
+          <select id="langSelector" onchange="changeLanguage(this.value)" class="bg-[#144c4d] text-white text-xs px-2 py-1 rounded border border-[#C8A96A]/40 focus:outline-none cursor-pointer">
+            <option value="vi">🇻🇳 Tiếng Việt</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="zh">🇨🇳 简体中文</option>
+            <option value="ko">🇰🇷 한국어</option>
+            <option value="ja">🇯🇵 日本語</option>
+          </select>
+        </div>
+        <button onclick="openCustomerLookup()" class="hover:text-[#C8A96A] transition flex items-center gap-1">
+          <i class="fa-solid fa-magnifying-glass"></i> <span data-i18n="lookup">Tra cứu Booking</span>
+        </button>
+        <button onclick="openVisaSurvey()" class="hover:text-[#C8A96A] transition flex items-center gap-1">
+          <i class="fa-solid fa-passport"></i> <span data-i18n="visaSurvey">Khảo sát Visa</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN NAVIGATION & MEGA MENU -->
+  <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <!-- LOGO -->
+      <a href="#" class="flex items-center space-x-3">
+        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm border border-[#C8A96A]/50 overflow-hidden p-0.5 shrink-0">
+          <img src="lll.png" alt="Logo Du Lịch Ngọc Bích" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" class="w-full h-full object-contain scale-125">
+          <!-- Vector Emblem Fallback matching lll.png -->
+          <svg viewBox="0 0 120 120" class="hidden w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="nbGradHead" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0B6E8A"/>
+                <stop offset="100%" stop-color="#0B7A43"/>
+              </linearGradient>
+            </defs>
+            <path d="M22 52 A42 42 0 0 1 88 26" fill="none" stroke="#B67C49" stroke-width="5" stroke-linecap="round"/>
+            <path d="M82 32 C95 28 106 16 112 8 C110 22 102 32 95 36 C103 42 110 52 112 64 C105 50 94 42 80 39 L72 36 Z" fill="#0B6E8A"/>
+            <text x="33" y="74" font-family="sans-serif" font-weight="900" font-size="52" fill="url(#nbGradHead)">NB</text>
+            <path d="M18 68 C22 96 52 112 84 96 C66 90 54 84 68 78 C78 74 72 68 58 68 C64 72 52 76 44 82 C36 88 48 94 56 96 C36 96 24 84 18 68 Z" fill="url(#nbGradHead)"/>
+            <circle cx="26" cy="54" r="6" fill="#0B7A43"/>
+            <rect x="24.5" y="58" width="3" height="12" fill="#0B7A43"/>
+          </svg>
+        </div>
+        <div>
+          <span class="text-xl font-serif font-bold text-[#0F3D3E] tracking-wide block">DU LỊCH NGỌC BÍCH</span>
+          <span class="text-[10px] tracking-widest text-[#C8A96A] uppercase font-semibold" data-i18n="tagline">Tinh Hoa Hành Trình Việt</span>
+        </div>
+      </a>
+
+      <!-- DESKTOP NAV -->
+      <div class="hidden lg:flex items-center space-x-8 font-medium text-sm">
+        <a href="#toursSection" class="text-gray-700 hover:text-[#0F3D3E] transition" data-i18n="home">Trang Chủ</a>
+        
+        <!-- MEGA MENU DROPDOWN -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-gray-700 group-hover:text-[#0F3D3E] py-2 transition font-semibold">
+            <span data-i18n="menuService">MENU DỊCH VỤ</span>
+            <i class="fa-solid fa-chevron-down text-xs"></i>
+          </button>
+          <div class="absolute top-full left-0 w-64 bg-white shadow-2xl rounded-xl py-3 border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+            <a href="javascript:void(0)" onclick="openAiAssistantFromMenu()" class="flex items-center gap-3 px-4 py-2.5 hover:bg-[#FAF8F5] text-gray-700 hover:text-[#0F3D3E] transition">
+              <i class="fa-solid fa-wand-magic-sparkles text-[#C8A96A] w-5"></i>
+              <span class="text-xs font-semibold" data-i18n="menuAi">AI Trợ lý du lịch</span>
+            </a>
+            <a href="javascript:void(0)" onclick="filterToursByType('all')" class="flex items-center gap-3 px-4 py-2.5 hover:bg-[#FAF8F5] text-gray-700 hover:text-[#0F3D3E] transition">
+              <i class="fa-solid fa-map-location-dot text-[#0F3D3E] w-5"></i>
+              <span class="text-xs font-semibold" data-i18n="menuTours">Tour trọn gói (30)</span>
+            </a>
+            <a href="javascript:void(0)" onclick="openServiceModal('flight')" class="flex items-center gap-3 px-4 py-2.5 hover:bg-[#FAF8F5] text-gray-700 hover:text-[#0F3D3E] transition">
+              <i class="fa-solid fa-plane text-[#0F3D3E] w-5"></i>
+              <span class="text-xs font-semibold" data-i18n="menuFlight">Vé máy bay</span>
+            </a>
+            <a href="javascript:void(0)" onclick="openServiceModal('hotel')" class="flex items-center gap-3 px-4 py-2.5 hover:bg-[#FAF8F5] text-gray-700 hover:text-[#0F3D3E] transition">
+              <i class="fa-solid fa-hotel text-[#0F3D3E] w-5"></i>
+              <span class="text-xs font-semibold" data-i18n="menuHotel">Khách sạn 5 sao</span>
+            </a>
+            <a href="javascript:void(0)" onclick="openServiceModal('combo')" class="flex items-center gap-3 px-4 py-2.5 hover:bg-[#FAF8F5] text-gray-700 hover:text-[#0F3D3E] transition">
+              <i class="fa-solid fa-suitcase-rolling text-[#0F3D3E] w-5"></i>
+              <span class="text-xs font-semibold" data-i18n="menuCombo">Combo du lịch</span>
+            </a>
+            <a href="javascript:void(0)" onclick="openServiceModal('experience')" class="flex items-center gap-3 px-4 py-2.5 hover:bg-[#FAF8F5] text-gray-700 hover:text-[#0F3D3E] transition">
+              <i class="fa-solid fa-ticket text-[#0F3D3E] w-5"></i>
+              <span class="text-xs font-semibold" data-i18n="menuExp">Vé trải nghiệm</span>
+            </a>
+            <a href="javascript:void(0)" onclick="openServiceModal('esim')" class="flex items-center gap-3 px-4 py-2.5 hover:bg-[#FAF8F5] text-gray-700 hover:text-[#0F3D3E] transition">
+              <i class="fa-solid fa-sim-card text-[#0F3D3E] w-5"></i>
+              <span class="text-xs font-semibold" data-i18n="menuEsim">eSIM Quốc tế</span>
+            </a>
+            <a href="javascript:void(0)" onclick="openVisaSurvey()" class="flex items-center gap-3 px-4 py-2.5 hover:bg-[#FAF8F5] text-gray-700 hover:text-[#0F3D3E] transition">
+              <i class="fa-solid fa-id-card text-[#0F3D3E] w-5"></i>
+              <span class="text-xs font-semibold" data-i18n="menuVisa">Dịch vụ Visa</span>
+            </a>
+          </div>
+        </div>
+
+        <a href="#toursSection" onclick="filterToursByRegion('Đồng Nai')" class="text-red-600 font-bold transition" data-i18n="menuDongNai">Đồng Nai (Nổi bật)</a>
+        <a href="#toursSection" onclick="filterToursByRegion('Miền Trung - Tây Nguyên')" class="text-gray-700 hover:text-[#0F3D3E] transition" data-i18n="menuDomestic">Trong Nước</a>
+        <a href="#toursSection" onclick="filterToursByRegion('Quốc Tế')" class="text-gray-700 hover:text-[#0F3D3E] transition" data-i18n="menuInternational">Quốc Tế</a>
+      </div>
+
+      <!-- RIGHT ACTIONS -->
+      <div class="flex items-center space-x-3">
+        <button onclick="openBookingsModal()" class="relative bg-[#FAF8F5] border border-gray-200 p-2.5 rounded-full text-[#0F3D3E] hover:bg-[#0F3D3E] hover:text-white transition shadow-sm" title="Quản lý Booking / Đơn hàng của tôi">
+          <i class="fa-solid fa-receipt text-sm"></i>
+          <span id="bookingBadge" class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold shadow">0</span>
+        </button>
+
+        <div id="userAuthArea">
+          <button onclick="openAuthModal('login')" class="bg-[#0F3D3E] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-[#144c4d] transition shadow flex items-center gap-2">
+            <i class="fa-solid fa-user"></i>
+            <span data-i18n="loginBtn">Đăng Nhập</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="relative bg-[#0F3D3E] text-white py-16 px-4 overflow-hidden">
+    <div class="absolute inset-0 opacity-25 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=1920&q=80')"></div>
+    <div class="max-w-5xl mx-auto relative z-10 text-center">
+      <span class="text-[#C8A96A] uppercase tracking-widest text-xs font-bold block mb-2" data-i18n="heroSubtitle">Trải Nghiệm Đẳng Cấp Hàng Đầu Việt Nam</span>
+      <h1 class="text-3xl sm:text-5xl font-serif font-bold mb-4" data-i18n="heroTitle">Khám Phá Thế Giới Cùng Du Lịch Ngọc Bích</h1>
+      <p class="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mb-8" data-i18n="heroDesc">30 hành trình du lịch trong nước và quốc tế thiết kế độc quyền, dịch vụ cao cấp 5 sao và trợ lý AI tư vấn 24/7.</p>
+
+      <!-- SEARCH BAR -->
+      <div class="bg-white p-3 rounded-2xl shadow-2xl max-w-3xl mx-auto flex flex-col md:flex-row gap-3 text-gray-800">
+        <div class="flex-1 flex items-center px-3 py-2 bg-[#FAF8F5] rounded-xl border border-gray-200">
+          <i class="fa-solid fa-magnifying-glass text-[#0F3D3E] mr-3"></i>
+          <input type="text" id="searchInput" placeholder="Bạn muốn đi đâu? (Đồng Nai, Phú Quốc, Nhật Bản...)" data-i18n-placeholder="searchPlaceholder" class="w-full bg-transparent text-sm focus:outline-none">
+        </div>
+        <div class="w-full md:w-52">
+          <select id="searchRegion" class="w-full h-full bg-[#FAF8F5] border border-gray-200 text-sm px-3 py-2 rounded-xl focus:outline-none">
+            <option value="" data-i18n="optAllDest">Tất cả địa điểm</option>
+            <option value="Đồng Nai">Đồng Nai & Lân cận</option>
+            <option value="Miền Tây">Miền Tây Nam Bộ</option>
+            <option value="Miền Trung - Tây Nguyên">Miền Trung - Tây Nguyên</option>
+            <option value="Miền Bắc">Miền Bắc</option>
+            <option value="Quốc Tế">Quốc Tế (Á - Âu - Úc)</option>
+          </select>
+        </div>
+        <button onclick="handleMainSearch()" class="bg-[#0F3D3E] hover:bg-[#144c4d] text-white font-semibold px-6 py-3 rounded-xl transition text-sm shadow" data-i18n="searchBtn">
+          Tìm Kiếm Tour
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOATING ACTION BUTTONS (CALL & AI) -->
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+    <!-- Call Button -->
+    <a href="tel:0397238981" class="w-14 h-14 bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center shadow-2xl call-btn-pulse transition text-xl" title="Gọi Hotline Ngay: 0397238981">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+    <!-- AI Assistant Floating Button -->
+    <button onclick="toggleAiModal()" class="w-14 h-14 bg-[#0F3D3E] hover:bg-[#144c4d] text-[#C8A96A] rounded-full flex items-center justify-center shadow-2xl border-2 border-[#C8A96A] transition text-xl" title="Trợ Lý Ngọc Bích AI">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+    </button>
+  </div>
+
+  <!-- MAIN CATALOG SECTION -->
+  <section id="toursSection" class="max-w-7xl mx-auto px-4 py-12">
+    <div class="flex flex-col md:flex-row gap-8">
+      
+      <!-- SIDEBAR FILTERS -->
+      <aside class="w-full md:w-72 bg-white p-6 rounded-2xl shadow-sm border border-gray-100 self-start sticky top-28 h-[calc(100vh-8rem)] overflow-y-auto custom-scrollbar">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="font-serif font-bold text-lg text-[#0F3D3E] flex items-center gap-2">
+            <i class="fa-solid fa-filter text-[#C8A96A]"></i> <span data-i18n="filterTitle">Bộ Lọc Tìm Kiếm</span>
+          </h2>
+          <button onclick="resetFilters()" class="text-xs text-gray-500 hover:text-red-600 underline" data-i18n="reset">Đặt lại</button>
+        </div>
+
+        <!-- Price Range Filter -->
+        <div class="mb-6">
+          <label class="block text-xs font-bold text-gray-700 uppercase mb-2" data-i18n="priceRangeLabel">Khoảng Giá (VNĐ)</label>
+          <input type="range" id="priceRange" min="1000000" max="30000000" step="1000000" value="30000000" oninput="updatePriceLabel(this.value)" class="w-full accent-[#0F3D3E]">
+          <div class="flex justify-between text-xs text-gray-500 mt-1">
+            <span>1 Tr</span>
+            <span id="priceLabel" class="font-bold text-[#0F3D3E]">Dưới 30 Tr</span>
+          </div>
+        </div>
+
+        <!-- Tour Segment Filter -->
+        <div class="mb-6">
+          <label class="block text-xs font-bold text-gray-700 uppercase mb-2" data-i18n="segmentLabel">Phân Khúc Tour</label>
+          <div class="space-y-2 text-sm">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" name="segmentFilter" value="tiết kiệm" onchange="applyFilters()" class="rounded text-[#0F3D3E]"> <span data-i18n="seg1">Tour Tiết Kiệm (&lt; 3 Tr)</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" name="segmentFilter" value="tiêu chuẩn" onchange="applyFilters()" class="rounded text-[#0F3D3E]"> <span data-i18n="seg2">Tiêu Chuẩn 3-4 Sao (3-7 Tr)</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" name="segmentFilter" value="cao cấp" onchange="applyFilters()" class="rounded text-[#0F3D3E]"> <span data-i18n="seg3">Cao Cấp (7-15 Tr)</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" name="segmentFilter" value="thượng lưu" onchange="applyFilters()" class="rounded text-[#0F3D3E]"> <span data-i18n="seg4">Thượng Lưu & MICE (&gt; 15 Tr)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Destination Filter -->
+        <div class="mb-6">
+          <label class="block text-xs font-bold text-gray-700 uppercase mb-2" data-i18n="destLabel">Điểm Đến</label>
+          <div class="space-y-2 text-sm">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" name="destFilter" value="Đồng Nai" onchange="applyFilters()" class="rounded text-[#0F3D3E]"> Đồng Nai & Lân cận (3)
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" name="destFilter" value="Miền Tây" onchange="applyFilters()" class="rounded text-[#0F3D3E]"> Miền Tây Nam Bộ (5)
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" name="destFilter" value="Miền Trung - Tây Nguyên" onchange="applyFilters()" class="rounded text-[#0F3D3E]"> Miền Trung - Tây Nguyên (8)
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" name="destFilter" value="Miền Bắc" onchange="applyFilters()" class="rounded text-[#0F3D3E]"> Miền Bắc (6)
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" name="destFilter" value="Quốc Tế" onchange="applyFilters()" class="rounded text-[#0F3D3E]"> Quốc Tế (8)
+            </label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- TOURS GRID CONTENT -->
+      <main class="flex-1">
+        <div class="flex justify-between items-center mb-6">
+          <div>
+            <h2 class="text-2xl font-serif font-bold text-[#0F3D3E]" data-i18n="catalogTitle">Danh Sách Tour Cao Cấp</h2>
+            <p class="text-xs text-gray-500"><span data-i18n="showing">Hiển thị</span> <span id="tourCount">0</span> <span data-i18n="toursFound">chương trình tour phù hợp</span></p>
+          </div>
+          <div>
+            <select id="sortBy" onchange="applyFilters()" class="bg-white border border-gray-200 text-xs px-3 py-2 rounded-xl focus:outline-none shadow-sm">
+              <option value="featured" data-i18n="sortFeat">Nổi bật nhất</option>
+              <option value="priceAsc" data-i18n="sortAsc">Giá từ thấp đến cao</option>
+              <option value="priceDesc" data-i18n="sortDesc">Giá từ cao xuống thấp</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Tours Container -->
+        <div id="toursGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Populated via JS -->
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-white text-gray-800 pt-14 pb-8 mt-16 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4">
+      <!-- BRAND LOGO -->
+      <div class="flex items-center space-x-3 mb-8">
+        <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow border border-[#C8A96A]/50 overflow-hidden p-0.5 shrink-0">
+          <img src="lll.png" alt="Logo Du Lịch Ngọc Bích" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" class="w-full h-full object-contain scale-125">
+          <!-- Vector Emblem Fallback matching lll.png -->
+          <svg viewBox="0 0 120 120" class="hidden w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="nbGradFoot" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0B6E8A"/>
+                <stop offset="100%" stop-color="#0B7A43"/>
+              </linearGradient>
+            </defs>
+            <path d="M22 52 A42 42 0 0 1 88 26" fill="none" stroke="#B67C49" stroke-width="5" stroke-linecap="round"/>
+            <path d="M82 32 C95 28 106 16 112 8 C110 22 102 32 95 36 C103 42 110 52 112 64 C105 50 94 42 80 39 L72 36 Z" fill="#0B6E8A"/>
+            <text x="33" y="74" font-family="sans-serif" font-weight="900" font-size="52" fill="url(#nbGradFoot)">NB</text>
+            <path d="M18 68 C22 96 52 112 84 96 C66 90 54 84 68 78 C78 74 72 68 58 68 C64 72 52 76 44 82 C36 88 48 94 56 96 C36 96 24 84 18 68 Z" fill="url(#nbGradFoot)"/>
+            <circle cx="26" cy="54" r="6" fill="#0B7A43"/>
+            <rect x="24.5" y="58" width="3" height="12" fill="#0B7A43"/>
+          </svg>
+        </div>
+        <div>
+          <span class="text-2xl font-serif font-bold text-[#0F3D3E] tracking-wide block">DU LỊCH NGỌC BÍCH</span>
+          <span class="text-[11px] tracking-widest text-[#C8A96A] uppercase font-bold" data-i18n="tagline">Tinh Hoa Hành Trình Việt</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <!-- COL 1: COMPANY INFO -->
+        <div>
+          <h4 class="text-base font-bold text-[#0F3D3E] mb-4">Công ty TNHH Du Lịch Ngọc Bích</h4>
+          <ul class="space-y-3 text-xs text-gray-600">
+            <li class="flex items-start gap-2.5">
+              <i class="fa-solid fa-location-dot text-[#0F3D3E] mt-0.5 text-sm"></i>
+              <span>280 An Dương Vương, Phường Chợ Quán, TP.HCM</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-envelope text-[#0F3D3E] text-sm"></i>
+              <a href="mailto:info@dulichngocbich.vn" class="hover:text-[#0F3D3E] transition">info@dulichngocbich.vn</a>
+            </li>
+            <li class="pt-1">
+              <span class="block text-gray-700 font-semibold mb-2"><i class="fa-solid fa-globe text-[#0F3D3E] mr-1.5"></i> Theo dõi chúng tôi trên:</span>
+              <div class="flex items-center gap-2.5">
+                <a href="#" class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-[#0F3D3E] hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-[#0F3D3E] hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-[#0F3D3E] hover:text-white transition"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-[#0F3D3E] hover:text-white transition"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-[#0F3D3E] hover:text-white transition"><i class="fa-brands fa-facebook-messenger"></i></a>
+              </div>
+            </li>
+            <li class="pt-2">
+              <a href="tel:0397238981" class="inline-flex items-center gap-2.5 bg-red-600 hover:bg-red-700 text-white font-bold px-5 py-2.5 rounded-full text-sm shadow-md transition">
+                <i class="fa-solid fa-phone-volume"></i> 0397238981
+              </a>
+              <span class="block text-[11px] text-gray-500 mt-1.5 ml-1">Tổng đài tư vấn & đặt tour 24/7</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- COL 2: INFORMATION -->
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider text-[#0F3D3E] mb-4">THÔNG TIN</h4>
+          <ul class="space-y-2.5 text-xs text-gray-600">
+            <li><a href="#" class="hover:text-[#0F3D3E] transition">Về chúng tôi</a></li>
+            <li><a href="javascript:void(0)" onclick="openVisaSurvey()" class="hover:text-[#0F3D3E] transition">Khảo sát tỷ lệ đạt visa</a></li>
+            <li><a href="#toursSection" class="hover:text-[#0F3D3E] transition">Tạp chí du lịch</a></li>
+            <li><a href="#toursSection" class="hover:text-[#0F3D3E] transition">Tin tức & Ưu đãi</a></li>
+            <li><a href="javascript:void(0)" onclick="toggleAiModal()" class="hover:text-[#0F3D3E] transition">Trợ giúp trực tuyến AI</a></li>
+          </ul>
+        </div>
+
+        <!-- COL 3: TERMS & POLICIES -->
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider text-[#0F3D3E] mb-4">ĐIỀU KIỆN - ĐIỀU KHOẢN</h4>
+          <ul class="space-y-2.5 text-xs text-gray-600">
+            <li><a href="#" class="hover:text-[#0F3D3E] transition">Chính sách riêng tư</a></li>
+            <li><a href="#" class="hover:text-[#0F3D3E] transition">Thỏa thuận sử dụng</a></li>
+            <li><a href="#" class="hover:text-[#0F3D3E] transition">Chính sách bảo vệ dữ liệu cá nhân</a></li>
+            <li><a href="javascript:void(0)" onclick="openCustomerLookup()" class="hover:text-[#0F3D3E] transition">Tra cứu hóa đơn & Booking</a></li>
+          </ul>
+        </div>
+
+        <!-- COL 4: CERTIFICATIONS & PAYMENTS -->
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider text-[#0F3D3E] mb-4">CHỨNG NHẬN</h4>
+          <div class="flex items-center gap-2 mb-6">
+            <span class="inline-flex items-center gap-1.5 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1.5 rounded-lg shadow-sm">
+              <i class="fa-solid fa-circle-check"></i> ĐÃ THÔNG BÁO BỘ CÔNG THƯƠNG
+            </span>
+            <span class="inline-flex items-center gap-1 bg-emerald-600 text-white text-[10px] font-bold px-2.5 py-1.5 rounded-lg shadow-sm">
+              <i class="fa-solid fa-shield-halved"></i> DMCA PROTECTED
+            </span>
+          </div>
+
+          <h4 class="text-sm font-bold uppercase tracking-wider text-[#0F3D3E] mb-3">CHẤP NHẬN THANH TOÁN</h4>
+          <div class="grid grid-cols-4 gap-2">
+            <div class="border border-gray-200 rounded-lg py-1.5 px-2 text-center font-extrabold text-[11px] text-blue-800 bg-gray-50">VISA</div>
+            <div class="border border-gray-200 rounded-lg py-1.5 px-2 text-center font-bold text-[10px] text-blue-600 bg-gray-50">Verified</div>
+            <div class="border border-gray-200 rounded-lg py-1.5 px-2 text-center font-extrabold text-[11px] text-red-600 bg-gray-50">Master</div>
+            <div class="border border-gray-200 rounded-lg py-1.5 px-2 text-center font-extrabold text-[10px] text-sky-600 bg-gray-50">VNPAY</div>
+            <div class="border border-gray-200 rounded-lg py-1.5 px-2 text-center font-extrabold text-[11px] text-emerald-700 bg-gray-50">JCB</div>
+            <div class="border border-gray-200 rounded-lg py-1.5 px-2 text-center font-extrabold text-[10px] text-blue-500 bg-gray-50">ZaloPay</div>
+            <div class="border border-gray-200 rounded-lg py-1.5 px-2 text-center font-extrabold text-[10px] text-indigo-700 bg-gray-50">AMEX</div>
+            <div class="border border-gray-200 rounded-lg py-1.5 px-2 text-center font-extrabold text-[11px] text-pink-600 bg-gray-50">MoMo</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTTOM COPYRIGHT -->
+      <div class="bg-[#FAF8F5] rounded-2xl p-4 text-center text-[11px] text-gray-500 border border-gray-100 space-y-1">
+        <p class="font-semibold text-gray-700">Bản quyền của Công Ty TNHH Du Lịch Ngọc Bích &copy; 2026. Bảo lưu mọi quyền.</p>
+        <p>Ghi rõ nguồn "www.dulichngocbich.vn" khi sử dụng lại thông tin từ website này.</p>
+        <p>Địa chỉ trụ sở: 280 An Dương Vương, phường Chợ Quán, TPHCM &bull; Hotline: 0397238981</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+  
+  <!-- Auth Modal (Login / Register Tabs) -->
+  <div id="authModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+      <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-lg"><i class="fa-solid fa-xmark"></i></button>
+      
+      <!-- TABS -->
+      <div class="flex border-b border-gray-200 mb-5">
+        <button id="tabLoginBtn" onclick="switchAuthTab('login')" class="flex-1 pb-2 font-serif font-bold text-sm text-[#0F3D3E] border-b-2 border-[#0F3D3E]">Khách Hàng</button>
+        <button id="tabRegisterBtn" onclick="switchAuthTab('register')" class="flex-1 pb-2 font-serif font-bold text-sm text-gray-400 border-b-2 border-transparent">Đăng Ký Mới</button>
+        <button id="tabStaffBtn" onclick="switchAuthTab('staff')" class="flex-1 pb-2 font-serif font-bold text-sm text-gray-400 border-b-2 border-transparent"><i class="fa-solid fa-shield-halved mr-1"></i>Nội Bộ</button>
+      </div>
+
+      <div id="customerSocialAuth">
+        <!-- GOOGLE OAUTH REAL LOGIN BUTTON -->
+        <button onclick="triggerRealGoogleLogin()" class="w-full bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-semibold py-3 px-4 rounded-xl text-sm flex items-center justify-center gap-3 shadow-sm transition mb-4 cursor-pointer">
+          <i class="fa-brands fa-google text-red-500 text-base"></i> Đăng nhập bằng Google
+        </button>
+
+        <div class="flex items-center my-4">
+          <div class="flex-grow border-t border-gray-200"></div>
+          <span class="px-3 text-xs text-gray-400 uppercase">Hoặc email truyền thống</span>
+          <div class="flex-grow border-t border-gray-200"></div>
+        </div>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <form id="loginFormContainer" onsubmit="handleLoginSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Email hoặc Số điện thoại</label>
+          <input type="text" id="loginEmail" required class="w-full bg-[#FAF8F5] border border-gray-200 text-sm px-3 py-2 rounded-xl focus:outline-none" placeholder="name@example.com hoặc 090...">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Mật khẩu</label>
+          <input type="password" id="loginPassword" required class="w-full bg-[#FAF8F5] border border-gray-200 text-sm px-3 py-2 rounded-xl focus:outline-none" placeholder="••••••••">
+        </div>
+        <button type="submit" class="w-full bg-[#0F3D3E] hover:bg-[#144c4d] text-white font-semibold py-3 rounded-xl transition text-sm shadow">
+          Đăng Nhập Hệ Thống
+        </button>
+      </form>
+
+      <!-- REGISTER FORM -->
+      <form id="registerFormContainer" onsubmit="handleRegisterSubmit(event)" class="space-y-4 hidden">
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Họ và Tên</label>
+          <input type="text" id="regName" required class="w-full bg-[#FAF8F5] border border-gray-200 text-sm px-3 py-2 rounded-xl focus:outline-none" placeholder="Nguyễn Văn A">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Số điện thoại liên hệ</label>
+          <input type="text" id="regPhone" required class="w-full bg-[#FAF8F5] border border-gray-200 text-sm px-3 py-2 rounded-xl focus:outline-none" placeholder="0901234567">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Email đăng ký</label>
+          <input type="email" id="regEmail" required class="w-full bg-[#FAF8F5] border border-gray-200 text-sm px-3 py-2 rounded-xl focus:outline-none" placeholder="name@example.com">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Mật khẩu</label>
+          <input type="password" id="regPassword" required class="w-full bg-[#FAF8F5] border border-gray-200 text-sm px-3 py-2 rounded-xl focus:outline-none" placeholder="••••••••">
+        </div>
+        <button type="submit" class="w-full bg-[#C8A96A] hover:bg-[#dfbe7e] text-[#0F3D3E] font-bold py-3 rounded-xl transition text-sm shadow">
+          Đăng Ký Tài Khoản Mới
+        </button>
+      </form>
+
+      <!-- STAFF / MANAGER INTERNAL LOGIN FORM -->
+      <form id="staffFormContainer" onsubmit="handleStaffLoginSubmit(event)" class="space-y-4 hidden">
+        <div class="bg-[#0F3D3E]/5 border border-[#0F3D3E]/20 p-3 rounded-xl text-xs text-[#0F3D3E]">
+          <p class="font-bold mb-1"><i class="fa-solid fa-lock text-[#C8A96A] mr-1"></i> Cổng Đăng Nhập Quản Lý & Nhân Viên</p>
+          <p class="text-[11px] text-gray-600">Dành riêng cho Quản lý & Nhân viên điều hành Du Lịch Ngọc Bích để quản trị danh sách booking và dữ liệu khách hàng.</p>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Email Nội Bộ Công Ty</label>
+          <input type="email" id="staffEmail" required class="w-full bg-[#FAF8F5] border border-gray-200 text-sm px-3 py-2 rounded-xl focus:outline-none" placeholder="quanly@dulichngocbich.vn">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Mật Khẩu / Mã PIN Nội Bộ</label>
+          <input type="password" id="staffPassword" required class="w-full bg-[#FAF8F5] border border-gray-200 text-sm px-3 py-2 rounded-xl focus:outline-none" placeholder="••••••">
+        </div>
+        <div class="flex gap-2">
+          <button type="button" onclick="quickFillStaff('admin')" class="flex-1 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 py-2 rounded-xl text-[11px] font-bold transition">
+            <i class="fa-solid fa-user-tie mr-1"></i> Điền TK Quản Lý
+          </button>
+          <button type="button" onclick="quickFillStaff('staff')" class="flex-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-200 py-2 rounded-xl text-[11px] font-bold transition">
+            <i class="fa-solid fa-headset mr-1"></i> Điền TK Nhân Viên
+          </button>
+        </div>
+        <button type="submit" class="w-full bg-[#0F3D3E] hover:bg-[#144c4d] text-[#C8A96A] font-bold py-3 rounded-xl transition text-sm shadow border border-[#C8A96A]">
+          Đăng Nhập Quyền Quản Trị
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Service Utility Modal -->
+  <div id="serviceModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto custom-scrollbar">
+      <button onclick="closeServiceModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-lg"><i class="fa-solid fa-xmark"></i></button>
+      <div id="serviceModalContent"></div>
+    </div>
+  </div>
+
+  <!-- Google Account Picker Modal (Interactive & Reliable) -->
+  <div id="googlePickerModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl relative text-center">
+      <button onclick="closeGooglePicker()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-lg"><i class="fa-solid fa-xmark"></i></button>
+      <div class="w-12 h-12 bg-red-50 text-red-600 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl shadow-inner">
+        <i class="fa-brands fa-google"></i>
+      </div>
+      <h3 class="font-serif font-bold text-lg text-[#0F3D3E] mb-1">Đăng nhập với Google</h3>
+      <p class="text-xs text-gray-500 mb-4">Chọn tài khoản Google của bạn để tiếp tục đến Du Lịch Ngọc Bích</p>
+      
+      <div id="googleSavedAccountsList" class="space-y-2 mb-4 text-left">
+        <div onclick="selectGoogleAccount('nguyen.an.travel@gmail.com', 'Nguyễn Văn An', '0901234567')" class="p-3 rounded-xl border border-gray-200 hover:bg-[#FAF8F5] cursor-pointer flex items-center gap-3 transition">
+          <div class="w-9 h-9 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs">AN</div>
+          <div class="overflow-hidden">
+            <p class="text-xs font-bold text-gray-800">Nguyễn Văn An</p>
+            <p class="text-[11px] text-gray-500 truncate">nguyen.an.travel@gmail.com</p>
+          </div>
+        </div>
+        <div onclick="selectGoogleAccount('ngocbich.vip@gmail.com', 'Trần Ngọc Bích', '0909888999')" class="p-3 rounded-xl border border-gray-200 hover:bg-[#FAF8F5] cursor-pointer flex items-center gap-3 transition">
+          <div class="w-9 h-9 rounded-full bg-emerald-700 text-white font-bold flex items-center justify-center text-xs">NB</div>
+          <div class="overflow-hidden">
+            <p class="text-xs font-bold text-gray-800">Trần Ngọc Bích</p>
+            <p class="text-[11px] text-gray-500 truncate">ngocbich.vip@gmail.com</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Custom Google Account Input Form (Hidden by default) -->
+      <form id="customGoogleForm" onsubmit="submitCustomGoogleAccount(event)" class="hidden text-left space-y-3 mb-4 bg-[#FAF8F5] p-3.5 rounded-xl border border-gray-200">
+        <div>
+          <label class="block text-[11px] font-bold text-gray-700 mb-1">Địa chỉ Gmail của bạn *</label>
+          <input type="email" id="customGoogleEmail" required placeholder="khachhang@gmail.com" class="w-full bg-white border border-gray-300 text-xs px-3 py-2 rounded-lg focus:outline-none focus:border-[#0F3D3E]">
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-gray-700 mb-1">Họ và Tên hiển thị *</label>
+          <input type="text" id="customGoogleName" required placeholder="VD: Lê Minh Khôi" class="w-full bg-white border border-gray-300 text-xs px-3 py-2 rounded-lg focus:outline-none focus:border-[#0F3D3E]">
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-gray-700 mb-1">Số điện thoại liên hệ *</label>
+          <input type="text" id="customGooglePhone" required placeholder="VD: 0912345678" class="w-full bg-white border border-gray-300 text-xs px-3 py-2 rounded-lg focus:outline-none focus:border-[#0F3D3E]">
+        </div>
+        <div class="flex gap-2 pt-1">
+          <button type="button" onclick="toggleCustomGoogleForm(false)" class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 rounded-lg text-xs transition">Quay lại</button>
+          <button type="submit" class="flex-1 bg-[#0F3D3E] hover:bg-[#144c4d] text-white font-bold py-2 rounded-lg text-xs transition shadow">Tiếp tục</button>
+        </div>
+      </form>
+
+      <button id="btnShowCustomGoogle" onclick="toggleCustomGoogleForm(true)" class="w-full bg-[#FAF8F5] hover:bg-gray-100 text-[#0F3D3E] font-bold py-2.5 rounded-xl text-xs transition border border-gray-200">
+        <i class="fa-solid fa-plus mr-1"></i> Sử dụng tài khoản Google khác
+      </button>
+    </div>
+  </div>
+
+  <!-- Tour Detail Modal -->
+  <div id="tourDetailModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar p-6 shadow-2xl relative">
+      <button onclick="closeTourDetail()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-xl z-10"><i class="fa-solid fa-xmark"></i></button>
+      <div id="tourDetailContent"></div>
+    </div>
+  </div>
+
+  <!-- Booking & Management Modal -->
+  <div id="bookingModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar p-6 shadow-2xl relative">
+      <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-lg"><i class="fa-solid fa-xmark"></i></button>
+      <div id="bookingModalContent"></div>
+    </div>
+  </div>
+
+  <!-- AI Assistant Chat Modal -->
+  <div id="aiChatModal" class="fixed bottom-24 right-6 z-50 w-96 bg-white rounded-2xl shadow-2xl border border-gray-200 hidden flex flex-col h-[500px]">
+    <div class="bg-[#0F3D3E] text-white p-4 rounded-t-2xl flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-[#C8A96A] text-[#0F3D3E] font-bold flex items-center justify-center text-xs">AI</div>
+        <div>
+          <h4 class="text-sm font-bold">Trợ Lý Ngọc Bích AI</h4>
+          <span class="text-[10px] text-emerald-300 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-400 inline-block animate-pulse"></span> Sẵn sàng tư vấn 24/7</span>
+        </div>
+      </div>
+      <button onclick="toggleAiModal()" class="text-white hover:text-[#C8A96A]"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    
+    <div id="aiChatMessages" class="flex-1 p-4 overflow-y-auto custom-scrollbar space-y-3 text-xs bg-[#FAF8F5]">
+      <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 max-w-[85%]">
+        <strong class="text-[#0F3D3E] block mb-1">Ngọc Bích AI:</strong>
+        Xin chào quý khách! Tôi là trợ lý AI thông minh của Du Lịch Ngọc Bích. Tôi có thể tư vấn tour Đồng Nai 2N1Đ đặc biệt, eSIM quốc tế, vé máy bay hoặc đặt tour tự động. Quý khách cần hỗ trợ gì ạ?
+      </div>
+    </div>
+
+    <div class="p-3 bg-white border-t border-gray-200 flex gap-2 rounded-b-2xl">
+      <input type="text" id="aiUserInput" placeholder="Nhập câu hỏi cho AI..." onkeypress="if(event.key==='Enter') sendAiMessage()" class="flex-1 bg-[#FAF8F5] border border-gray-200 px-3 py-2 rounded-xl text-xs focus:outline-none">
+      <button onclick="sendAiMessage()" class="bg-[#0F3D3E] hover:bg-[#144c4d] text-white px-4 py-2 rounded-xl text-xs font-bold transition">Gửi</button>
+    </div>
+  </div>
+
+  <!-- Custom Notification Banner (Replaces native alert() so nothing is blocked in sandboxed iframes) -->
+  <div id="customToastBox" class="fixed top-20 left-1/2 -translate-x-1/2 z-[100] hidden max-w-md w-full px-4">
+    <div class="bg-[#0F3D3E] text-white border-2 border-[#C8A96A] rounded-2xl p-4 shadow-2xl flex items-start gap-3">
+      <i class="fa-solid fa-circle-info text-[#C8A96A] text-lg mt-0.5"></i>
+      <div id="customToastText" class="text-xs leading-relaxed flex-1 whitespace-pre-line font-medium"></div>
+      <button onclick="closeCustomToast()" class="text-gray-300 hover:text-white text-sm"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Safe non-blocking toast helper while preserving exact message semantics
+    let toastTimer = null;
+    function showToastMessage(msg) {
+      const box = document.getElementById('customToastBox');
+      const txt = document.getElementById('customToastText');
+      if(!box || !txt) return;
+      txt.innerText = msg;
+      box.classList.remove('hidden');
+      if(toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        box.classList.add('hidden');
+      }, 4500);
+    }
+    window.closeCustomToast = function() {
+      document.getElementById('customToastBox')?.classList.add('hidden');
+    };
+
+    // TRANSLATION DICTIONARY
+    const TRANSLATIONS = {
+      vi: {
+        hotline: "Hotline Tư Vấn 24/7",
+        lookup: "Tra cứu Booking",
+        visaSurvey: "Khảo sát Visa",
+        tagline: "Tinh Hoa Hành Trình Việt",
+        home: "Trang Chủ",
+        menuService: "MENU DỊCH VỤ",
+        menuAi: "AI Trợ lý du lịch",
+        menuTours: "Tour trọn gói (30)",
+        menuFlight: "Vé máy bay",
+        menuHotel: "Khách sạn 5 sao",
+        menuCombo: "Combo du lịch",
+        menuExp: "Vé trải nghiệm",
+        menuEsim: "eSIM Quốc tế",
+        menuVisa: "Dịch vụ Visa",
+        menuDongNai: "Đồng Nai (Nổi bật)",
+        menuDomestic: "Trong Nước",
+        menuInternational: "Quốc Tế",
+        loginBtn: "Đăng Nhập",
+        heroSubtitle: "Trải Nghiệm Đẳng Cấp Hàng Đầu Việt Nam",
+        heroTitle: "Khám Phá Thế Giới Cùng Du Lịch Ngọc Bích",
+        heroDesc: "30 hành trình du lịch trong nước và quốc tế thiết kế độc quyền, dịch vụ cao cấp 5 sao và trợ lý AI tư vấn 24/7.",
+        searchPlaceholder: "Bạn muốn đi đâu? (Đồng Nai, Phú Quốc, Nhật Bản...)",
+        optAllDest: "Tất cả địa điểm",
+        searchBtn: "Tìm Kiếm Tour",
+        filterTitle: "Bộ Lọc Tìm Kiếm",
+        reset: "Đặt lại",
+        priceRangeLabel: "Khoảng Giá (VNĐ)",
+        segmentLabel: "Phân Khúc Tour",
+        seg1: "Tour Tiết Kiệm (< 3 Tr)",
+        seg2: "Tiêu Chuẩn 3-4 Sao (3-7 Tr)",
+        seg3: "Cao Cấp (7-15 Tr)",
+        seg4: "Thượng Lưu & MICE (> 15 Tr)",
+        destLabel: "Điểm Đến",
+        catalogTitle: "Danh Sách Tour Cao Cấp",
+        showing: "Hiển thị",
+        toursFound: "chương trình tour phù hợp",
+        sortFeat: "Nổi bật nhất",
+        sortAsc: "Giá từ thấp đến cao",
+        sortDesc: "Giá từ cao xuống thấp",
+        footerAbout: "Công ty TNHH Du Lịch Ngọc Bích chuyên cung cấp các giải pháp du lịch thượng lưu, tour MICE và hành trình khám phá văn hóa độc quyền.",
+        footerLinks: "Đường Dẫn Nhanh",
+        footerSupport: "Hỗ Trợ Khách Hàng",
+        footerPromo: "Đăng Ký Nhận Ưu Đãi",
+        footerPromoDesc: "Nhận ngay voucher giảm giá 500.000đ cho chuyến đi đầu tiên.",
+        registerBtn: "Đăng Ký"
+      },
+      en: {
+        hotline: "24/7 Hotline",
+        lookup: "Booking Lookup",
+        visaSurvey: "Visa Survey",
+        tagline: "Essence of Vietnamese Journeys",
+        home: "Home",
+        menuService: "SERVICES MENU",
+        menuAi: "AI Travel Assistant",
+        menuTours: "All Tours (30)",
+        menuFlight: "Flights",
+        menuHotel: "5-Star Hotels",
+        menuCombo: "Travel Combos",
+        menuExp: "Experiences",
+        menuEsim: "Global eSIM",
+        menuVisa: "Visa Service",
+        menuDongNai: "Dong Nai (Featured)",
+        menuDomestic: "Domestic",
+        menuInternational: "International",
+        loginBtn: "Sign In",
+        heroSubtitle: "Vietnam's Premier Luxury Experience",
+        heroTitle: "Explore the World with Ngoc Bich Travel",
+        heroDesc: "30 exclusive domestic & international itineraries, 5-star services and 24/7 AI consulting.",
+        searchPlaceholder: "Where do you want to go? (Dong Nai, Phu Quoc, Japan...)",
+        optAllDest: "All Destinations",
+        searchBtn: "Search Tours",
+        filterTitle: "Search Filters",
+        reset: "Reset",
+        priceRangeLabel: "Price Range (VND)",
+        segmentLabel: "Tour Segment",
+        seg1: "Economy (< 3M VND)",
+        seg2: "Standard 3-4* (3-7M VND)",
+        seg3: "Premium (7-15M VND)",
+        seg4: "Luxury & MICE (> 15M VND)",
+        destLabel: "Destinations",
+        catalogTitle: "Luxury Tour Collection",
+        showing: "Showing",
+        toursFound: "matching tours found",
+        sortFeat: "Most Featured",
+        sortAsc: "Price: Low to High",
+        sortDesc: "Price: High to Low",
+        footerAbout: "Ngoc Bich Travel Co., Ltd specializes in luxury travel solutions, MICE tours and exclusive cultural discovery journeys.",
+        footerLinks: "Quick Links",
+        footerSupport: "Customer Support",
+        footerPromo: "Subscribe for Offers",
+        footerPromoDesc: "Get an instant 500,000 VND discount voucher for your first trip.",
+        registerBtn: "Register"
+      },
+      zh: {
+        hotline: "24/7 咨询热线",
+        lookup: "订单查询",
+        visaSurvey: "签证测评",
+        tagline: "越南游精髓",
+        home: "首页",
+        menuService: "服务菜单",
+        menuAi: "AI 旅游助手",
+        menuTours: "旅游团 (30)",
+        menuFlight: "机票",
+        menuHotel: "五星级酒店",
+        menuCombo: "旅游套餐",
+        menuExp: "体验门票",
+        menuEsim: "国际 eSIM",
+        menuVisa: "签证服务",
+        menuDongNai: "同奈 (核心)",
+        menuDomestic: "国内游",
+        menuInternational: "国际游",
+        loginBtn: "登录",
+        heroSubtitle: "越南顶级的奢华体验",
+        heroTitle: "与玉碧旅游一起探索世界",
+        heroDesc: "30 条国内外独家旅游路线，五星级服务及 24/7 AI 咨询。",
+        searchPlaceholder: "你想去哪里？（同奈、富国岛、日本...）",
+        optAllDest: "所有目的地",
+        searchBtn: "搜索行程",
+        filterTitle: "搜索筛选",
+        reset: "重置",
+        priceRangeLabel: "价格范围",
+        segmentLabel: "旅游分段",
+        seg1: "经济型 (< 300万)",
+        seg2: "标准 3-4星",
+        seg3: "高级型",
+        seg4: "奢华与MICE",
+        destLabel: "目的地",
+        catalogTitle: "高端旅游精选",
+        showing: "显示",
+        toursFound: "个符合的行程",
+        sortFeat: "最受欢迎",
+        sortAsc: "价格从低到高",
+        sortDesc: "价格从高到低",
+        footerAbout: "玉碧旅游有限公司专注于高端旅游解决方案、MICE旅游和独家文化探索之旅。",
+        footerLinks: "快速链接",
+        footerSupport: "客户支持",
+        footerPromo: "订阅优惠",
+        footerPromoDesc: "首次出行立减 500,000 越南盾。",
+        registerBtn: "注册"
+      },
+      ko: {
+        hotline: "24/7 상담 핫라인",
+        lookup: "예약 조회",
+        visaSurvey: "비자 설문",
+        tagline: "베트남 여행의 정수",
+        home: "홈",
+        menuService: "서비스 메뉴",
+        menuAi: "AI 여행 어시스턴트",
+        menuTours: "투어 패키지 (30)",
+        menuFlight: "항공권",
+        menuHotel: "5성급 호텔",
+        menuCombo: "여행 콤보",
+        menuExp: "액티비티 티켓",
+        menuEsim: "글로벌 eSIM",
+        menuVisa: "비자 서비스",
+        menuDongNai: "동나이 (대표)",
+        menuDomestic: "국내 여행",
+        menuInternational: "해외 여행",
+        loginBtn: "로그인",
+        heroSubtitle: "베트남 최고의 럭셔리 경험",
+        heroTitle: "옥비와 함께 세계를 탐험하세요",
+        heroDesc: "30개의 독점 국내외 여행 일정, 5성급 서비스 및 24/7 AI 상담.",
+        searchPlaceholder: "어디로 가고 싶으신가요? (동나이, 푸꾸옥, 일본...)",
+        optAllDest: "모든 목적지",
+        searchBtn: "투어 검색",
+        filterTitle: "검색 필터",
+        reset: "초기화",
+        priceRangeLabel: "가격대",
+        segmentLabel: "투어 등급",
+        seg1: "알뜰형",
+        seg2: "스탠다드 3-4성",
+        seg3: "프리미엄",
+        seg4: "럭셔리 & MICE",
+        destLabel: "목적지",
+        catalogTitle: "럭셔리 투어 컬렉션",
+        showing: "표시",
+        toursFound: "개의 일치하는 투어",
+        sortFeat: "인기순",
+        sortAsc: "낮은 가격순",
+        sortDesc: "높은 가격순",
+        footerAbout: "옥비 여행사는 럭셔리 여행 솔루션, MICE 투어 및 독점 문화 탐방을 전문으로 합니다.",
+        footerLinks: "빠른 링크",
+        footerSupport: "고객 지원",
+        footerPromo: "프로모션 구독",
+        footerPromoDesc: "첫 여행 시 500,000 VND 할인 쿠폰을 즉시 받으세요.",
+        registerBtn: "등록"
+      },
+      ja: {
+        hotline: "24/7 相談ホットライン",
+        lookup: "予約照会",
+        visaSurvey: "ビザ診断",
+        tagline: "ベトナム旅行の真髄",
+        home: "ホーム",
+        menuService: "サービスメニュー",
+        menuAi: "AI旅行アシスタント",
+        menuTours: "ツアー一覧 (30)",
+        menuFlight: "航空券",
+        menuHotel: "5つ星ホテル",
+        menuCombo: "旅行コンボ",
+        menuExp: "体験チケット",
+        menuEsim: "海外eSIM",
+        menuVisa: "ビザサービス",
+        menuDongNai: "ドンナイ（主軸）",
+        menuDomestic: "国内旅行",
+        menuInternational: "海外旅行",
+        loginBtn: "ログイン",
+        heroSubtitle: "ベトナム最高峰のラグジュアリー体験",
+        heroTitle: "ゴック・ビック旅行と共に世界を探索",
+        heroDesc: "30の国内外の厳選ツアー、5つ星サービス、24/7AIサポート。",
+        searchPlaceholder: "どこに行きたいですか？（ドンナイ、フーコック、日本...）",
+        optAllDest: "すべての目的地",
+        searchBtn: "ツアー検索",
+        filterTitle: "検索フィルター",
+        reset: "リセット",
+        priceRangeLabel: "価格帯",
+        segmentLabel: "ツアー区分",
+        seg1: "エコノミー",
+        seg2: "スタンダード 3-4星",
+        seg3: "プレミアム",
+        seg4: "ラグジュアリー & MICE",
+        destLabel: "目的地",
+        catalogTitle: "ラグジュアリーツアーコレクション",
+        showing: "表示中",
+        toursFound: "件のツアー",
+        sortFeat: "おすすめ順",
+        sortAsc: "価格が安い順",
+        sortDesc: "価格が高い順",
+        footerAbout: "ゴック・ビック旅行有限会社は、ラグジュアリー旅行ソリューション、MICEツアー、文化的探索の旅を提供します。",
+        footerLinks: "クイックリンク",
+        footerSupport: "カスタマーサポート",
+        footerPromo: "特典を受け取る",
+        footerPromoDesc: "初回の旅行で500,000VNDの割引クーポンをゲット。",
+        registerBtn: "登録"
+      }
+    };
+
+    let currentLanguage = 'vi';
+    let currentUser = null;
+    let userBookings = [
+      { id: 'NB-9821', customerName: 'Nguyễn Văn An', phone: '0901234567', email: 'an.nguyen@gmail.com', type: 'Tour Nổi Bật', title: 'Khám Phá Đồng Nai 2N1Đ (25 khách)', date: 'T7, 21/11/2026', total: '40.350.000 VNĐ', status: 'Đã xác nhận' },
+      { id: 'NB-9845', customerName: 'Lê Thị Minh Thư', phone: '0918456789', email: 'minhthu.le@gmail.com', type: 'Tour Trọn Gói', title: 'Đảo Ngọc Phú Quốc 5 Sao & Du Thuyền Hoàng Hôn 3N2Đ (4 khách)', date: 'T6, 27/11/2026', total: '27.560.000 VNĐ', status: 'Đã xác nhận (Cọc 50%)' },
+      { id: 'NB-9902', customerName: 'Trần Hoàng Nam', phone: '0987654321', email: 'hoangnam.tran@gmail.com', type: 'Tour Quốc Tế', title: 'Nhật Bản: Tokyo – Mt Fuji – Kyoto – Osaka 6N5Đ (2 khách)', date: 'T7, 05/12/2026', total: '59.980.000 VNĐ', status: 'Chờ xuất vé' }
+    ];
+
+    function isStaffOrAdmin() {
+      return currentUser && (currentUser.role === 'admin' || currentUser.role === 'staff');
+    }
+
+    window.changeLanguage = function(lang) {
+      currentLanguage = lang;
+      const totalTours = TOURS_DATA.length;
+      const dict = TRANSLATIONS[lang] || TRANSLATIONS['vi'];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if(dict[key]) {
+          el.innerText = dict[key].replace(/\b30\b/g, String(totalTours));
+        }
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if(dict[key]) el.setAttribute('placeholder', dict[key]);
+      });
+    };
+
+    // VISA ASSESSMENT SURVEY MODAL (ADDED TO PREVENT ANY REFERENCE ERROR)
+    window.openVisaSurvey = function() {
+      const modalContent = document.getElementById('serviceModalContent');
+      modalContent.innerHTML = `
+        <h3 class="font-serif font-bold text-xl text-[#0F3D3E] mb-2"><i class="fa-solid fa-passport text-[#C8A96A] mr-2"></i> Khảo Sát Tỷ Lệ Đạt Visa Quốc Tế</h3>
+        <p class="text-xs text-gray-500 mb-4">Đánh giá nhanh hồ sơ của bạn để chuyên viên Visa Ngọc Bích tư vấn giải pháp tối ưu.</p>
+        <form onsubmit="submitVisaSurvey(event)" class="space-y-3 text-xs mb-2">
+          <div>
+            <label class="block font-bold text-gray-700 mb-1">Quốc Gia / Khu Vực Dự Kiến Xin Visa</label>
+            <select id="visaCountry" class="w-full bg-[#FAF8F5] border border-gray-200 px-3 py-2 rounded-xl focus:outline-none">
+              <option value="Nhật Bản">🇯🇵 Nhật Bản (Du lịch / Công tác)</option>
+              <option value="Hàn Quốc">🇰🇷 Hàn Quốc (C-3-9 / Đại đô thị)</option>
+              <option value="Châu Âu (Schengen)">🇪🇺 Châu Âu (Khối Schengen)</option>
+              <option value="Mỹ (USA)">🇺🇸 Hoa Kỳ (B1/B2)</option>
+              <option value="Úc (Australia)">🇦🇺 Úc (Sub-class 600)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-gray-700 mb-1">Lịch Sử Du Lịch Nước Ngoài</label>
+            <select id="visaHistory" class="w-full bg-[#FAF8F5] border border-gray-200 px-3 py-2 rounded-xl focus:outline-none">
+              <option value="high">Đã từng đi các nước phát triển (Nhật, Hàn, Âu, Mỹ, Úc)</option>
+              <option value="medium">Đã từng đi các nước Đông Nam Á (Thái Lan, Singapore...)</option>
+              <option value="new">Hộ chiếu trắng (Chưa từng xuất cảnh)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-gray-700 mb-1">Tình Trạng Công Việc & Tài Chính</label>
+            <select id="visaFinance" class="w-full bg-[#FAF8F5] border border-gray-200 px-3 py-2 rounded-xl focus:outline-none">
+              <option value="strong">Hợp đồng lao động ổn định / Chủ doanh nghiệp + Sổ tiết kiệm &gt; 150tr</option>
+              <option value="normal">Thu nhập ổn định, sổ tiết kiệm từ 100tr - 150tr</option>
+              <option value="support">Kinh doanh tự do / Cần hỗ trợ chứng minh tài chính</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-gray-700 mb-1">Họ Tên & Số Điện Thoại Nhận Kết Quả *</label>
+            <input type="text" id="visaContact" required value="${currentUser ? (currentUser.name + ' - ' + (currentUser.phone || '')) : ''}" placeholder="VD: Nguyễn Văn A - 0909123456" class="w-full bg-[#FAF8F5] border border-gray-200 px-3 py-2 rounded-xl focus:outline-none">
+          </div>
+          <div id="visaResultBox" class="hidden bg-emerald-50 border border-emerald-200 p-3.5 rounded-xl text-emerald-900"></div>
+          <button type="submit" class="w-full bg-[#0F3D3E] hover:bg-[#144c4d] text-white font-bold py-3 rounded-xl text-sm shadow transition">
+            Chấm Điểm & Nhận Tư Vấn Visa Ngay
+          </button>
+        </form>
+      `;
+      document.getElementById('serviceModal').classList.remove('hidden');
+    };
+
+    window.submitVisaSurvey = function(e) {
+      e.preventDefault();
+      const country = document.getElementById('visaCountry').value;
+      const history = document.getElementById('visaHistory').value;
+      const finance = document.getElementById('visaFinance').value;
+      const contact = document.getElementById('visaContact').value;
+
+      let score = 65;
+      if(history === 'high') score += 20;
+      else if(history === 'medium') score += 10;
+
+      if(finance === 'strong') score += 13;
+      else if(finance === 'normal') score += 7;
+
+      const resultBox = document.getElementById('visaResultBox');
+      resultBox.classList.remove('hidden');
+      resultBox.innerHTML = `
+        <p class="font-bold text-sm mb-1"><i class="fa-solid fa-circle-check text-emerald-600 mr-1"></i> Tỷ lệ đậu Visa ${country} ước tính: <span class="text-red-600 text-base">${score}%</span></p>
+        <p class="leading-relaxed">Hồ sơ của <strong>${escapeHtml(contact)}</strong> đã được ghi nhận. Chuyên viên Visa Du Lịch Ngọc Bích sẽ liên hệ qua Zalo/SĐT trong 15 phút để hướng dẫn chi tiết!</p>
+      `;
+      showToastMessage(`Đã chấm điểm hồ sơ Visa ${country}: Tỷ lệ đạt ước tính ${score}%! Chuyên viên sẽ liên hệ ngay.`);
+    };
+
+    // GUARD CHECK BEFORE OPENING ANY SERVICE OR BOOKING
+    function requireAuthBeforeAction(actionCallback) {
+      if(!currentUser) {
+        showToastMessage("Vui lòng Đăng nhập hoặc Đăng ký tài khoản hội viên trước khi thực hiện đặt dịch vụ!");
+        openAuthModal('login');
+        return;
+      }
+      actionCallback();
+    }
+
+    window.openServiceModal = function(serviceType) {
+      requireAuthBeforeAction(() => {
+        const modalContent = document.getElementById('serviceModalContent');
+        let html = "";
+
+        if(serviceType === 'esim') {
+          html = `
+            <h3 class="font-serif font-bold text-xl text-[#0F3D3E] mb-2"><i class="fa-solid fa-sim-card text-[#C8A96A] mr-2"></i> eSIM Quốc Tế 4G Tốc Độ Cao</h3>
+            <p class="text-xs text-gray-500 mb-4">Lựa chọn gói cước eSIM linh hoạt theo quốc gia.</p>
+            <div class="space-y-3 text-xs mb-6">
+              <div>
+                <label class="block font-bold text-gray-700 mb-1">Chọn Quốc Gia / Khu Vực</label>
+                <select id="esimDest" class="w-full bg-[#FAF8F5] border border-gray-200 px-3 py-2 rounded-xl focus:outline-none">
+                  <option value="Nhật Bản (5GB / 5 Ngày) - 290.000đ">🇯🇵 Nhật Bản (5GB / 5 Ngày) - 290.000đ</option>
+                  <option value="Hàn Quốc (Unlimit / 7 Ngày) - 350.000đ">🇰🇷 Hàn Quốc (Unlimit / 7 Ngày) - 350.000đ</option>
+                  <option value="Châu Âu (10GB / 15 Ngày) - 690.000đ">🇪🇺 Châu Âu (10GB / 15 Ngày) - 690.000đ</option>
+                  <option value="Thái Lan (15GB / 8 Ngày) - 190.000đ">🇹🇭 Thái Lan (15GB / 8 Ngày) - 190.000đ</option>
+                  <option value="Singapore (Unlimit / 5 Ngày) - 220.000đ">🇸🇬 Singapore (Unlimit / 5 Ngày) - 220.000đ</option>
+                </select>
+              </div>
+              <div>
+                <label class="block font-bold text-gray-700 mb-1">Họ tên khách hàng</label>
+                <input type="text" id="esimName" value="${currentUser.name}" readonly class="w-full bg-gray-100 border border-gray-200 px-3 py-2 rounded-xl font-bold">
+              </div>
+              <div>
+                <label class="block font-bold text-gray-700 mb-1">Email nhận mã QR eSIM</label>
+                <input type="email" id="esimEmail" value="${currentUser.email}" readonly class="w-full bg-gray-100 border border-gray-200 px-3 py-2 rounded-xl font-bold">
+              </div>
+            </div>
+            <button onclick="submitServiceOrder('eSIM')" class="w-full bg-[#0F3D3E] text-white font-semibold py-3 rounded-xl text-sm shadow hover:bg-[#144c4d] transition">Xác Nhận Đặt eSIM & Xuất Đơn</button>
+          `;
+        } else if(serviceType === 'flight') {
+          html = `
+            <h3 class="font-serif font-bold text-xl text-[#0F3D3E] mb-2"><i class="fa-solid fa-plane text-[#C8A96A] mr-2"></i> Đặt Vé Máy Bay Nội Địa & Quốc Tế</h3>
+            <p class="text-xs text-gray-500 mb-4">Lựa chọn chặng bay và hãng hàng không yêu thích.</p>
+            <div class="space-y-3 text-xs mb-6">
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block font-bold mb-1">Điểm Đi</label>
+                  <select id="flightFrom" class="w-full bg-[#FAF8F5] border border-gray-200 p-2 rounded-xl">
+                    <option value="TP. Hồ Chí Minh (SGN)">TP. Hồ Chí Minh (SGN)</option>
+                    <option value="Hà Nội (HAN)">Hà Nội (HAN)</option>
+                    <option value="Đà Nẵng (DAD)">Đà Nẵng (DAD)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block font-bold mb-1">Điểm Đến</label>
+                  <select id="flightTo" class="w-full bg-[#FAF8F5] border border-gray-200 p-2 rounded-xl">
+                    <option value="Hà Nội (HAN)">Hà Nội (HAN)</option>
+                    <option value="Phú Quốc (PQC)">Phú Quốc (PQC)</option>
+                    <option value="Đà Lạt (DLI)">Đà Lạt (DLI)</option>
+                    <option value="Tokyo (NRT) - Nhật Bản">Tokyo (NRT) - Nhật Bản</option>
+                    <option value="Seoul (ICN) - Hàn Quốc">Seoul (ICN) - Hàn Quốc</option>
+                  </select>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block font-bold mb-1">Hãng Hàng Không</label>
+                  <select id="flightAirline" class="w-full bg-[#FAF8F5] border border-gray-200 p-2 rounded-xl">
+                    <option value="Vietnam Airlines">Vietnam Airlines</option>
+                    <option value="Vietjet Air">Vietjet Air</option>
+                    <option value="Bamboo Airways">Bamboo Airways</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block font-bold mb-1">Hạng Ghế & Giá</label>
+                  <select id="flightClass" class="w-full bg-[#FAF8F5] border border-gray-200 p-2 rounded-xl">
+                    <option value="Phổ thông tiêu chuẩn - 1.450.000đ">Phổ thông tiêu chuẩn - 1.450.000đ</option>
+                    <option value="Phổ thông đặc biệt - 2.250.000đ">Phổ thông đặc biệt - 2.250.000đ</option>
+                    <option value="Thương gia 5 Sao - 4.850.000đ">Thương gia 5 Sao - 4.850.000đ</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label class="block font-bold mb-1">Ngày Khởi Hành</label>
+                <input type="date" id="flightDate" value="2026-11-20" class="w-full bg-[#FAF8F5] border border-gray-200 p-2 rounded-xl">
+              </div>
+            </div>
+            <button onclick="submitServiceOrder('Vé máy bay')" class="w-full bg-[#0F3D3E] text-white font-semibold py-3 rounded-xl text-sm shadow">Xác Nhận Đặt Vé Máy Bay</button>
+          `;
+        } else if(serviceType === 'hotel') {
+          html = `
+            <h3 class="font-serif font-bold text-xl text-[#0F3D3E] mb-2"><i class="fa-solid fa-hotel text-[#C8A96A] mr-2"></i> Đặt Khách Sạn & Resort 5 Sao</h3>
+            <p class="text-xs text-gray-500 mb-4">Lựa chọn điểm đến và khách sạn nghỉ dưỡng cao cấp.</p>
+            <div class="space-y-3 text-xs mb-6">
+              <div>
+                <label class="block font-bold mb-1">Chọn Điểm Đến & Khách Sạn</label>
+                <select id="hotelChoice" class="w-full bg-[#FAF8F5] border border-gray-200 p-2 rounded-xl">
+                  <option value="Vinpearl Luxury Phú Quốc (5*) - 3.200.000đ/đêm">Vinpearl Luxury Phú Quốc (5*) - 3.200.000đ/đêm</option>
+                  <option value="InterContinental Đà Nẵng Sun Peninsula (5*) - 5.500.000đ/đêm">InterContinental Đà Nẵng Sun Peninsula (5*) - 5.500.000đ/đêm</option>
+                  <option value="DaLat Edensee Lake Resort & Spa (4*) - 2.100.000đ/đêm">DaLat Edensee Lake Resort & Spa (4*) - 2.100.000đ/đêm</option>
+                  <option value="Khách sạn Hapyson Long Khánh - Đồng Nai (3*) - 950.000đ/đêm">Khách sạn Hapyson Long Khánh - Đồng Nai (3*) - 950.000đ/đêm</option>
+                  <option value="Tokyo Station Hotel - Nhật Bản (5*) - 4.900.000đ/đêm">Tokyo Station Hotel - Nhật Bản (5*) - 4.900.000đ/đêm</option>
+                </select>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block font-bold mb-1">Số Đêm Lưu Trú</label>
+                  <input type="number" id="hotelNights" value="2" min="1" class="w-full bg-[#FAF8F5] border border-gray-200 p-2 rounded-xl">
+                </div>
+                <div>
+                  <label class="block font-bold mb-1">Số Lượng Phòng</label>
+                  <input type="number" id="hotelRooms" value="1" min="1" class="w-full bg-[#FAF8F5] border border-gray-200 p-2 rounded-xl">
+                </div>
+              </div>
+            </div>
+            <button onclick="submitServiceOrder('Khách sạn 5 sao')" class="w-full bg-[#0F3D3E] text-white font-semibold py-3 rounded-xl text-sm shadow">Xác Nhận Đặt Khách Sạn</button>
+          `;
+        } else if(serviceType === 'combo') {
+          html = `
+            <h3 class="font-serif font-bold text-xl text-[#0F3D3E] mb-2"><i class="fa-solid fa-suitcase-rolling text-[#C8A96A] mr-2"></i> Combo Du Lịch Tiết Kiệm (Vé Máy Bay + Khách Sạn)</h3>
+            <p class="text-xs text-gray-500 mb-4">Lựa chọn combo trọn gói ưu đãi giảm đến 30%.</p>
+            <div class="space-y-3 text-xs mb-6">
+              <div>
+                <label class="block font-bold mb-1">Chọn Gói Combo Trọn Gói</label>
+                <select id="comboChoice" class="w-full bg-[#FAF8F5] border border-gray-200 p-2 rounded-xl">
+                  <option value="Combo Đà Nẵng 3N2Đ (Bay BB + KS 4*): 3.990.000đ/khách">Combo Đà Nẵng 3N2Đ (Bay BB + KS 4*): 3.990.000đ/khách</option>
+                  <option value="Combo Phú Quốc 4N3Đ (Bay VJ + Resort 5*): 5.890.000đ/khách">Combo Phú Quốc 4N3Đ (Bay VJ + Resort 5*): 5.890.000đ/khách</option>
+                  <option value="Combo Nha Trang 3N2Đ (Bay VNA + KS 4*): 4.190.000đ/khách">Combo Nha Trang 3N2Đ (Bay VNA + KS 4*): 4.190.000đ/khách</option>
+                  <option value="Combo Bangkok - Pattaya 5N4Đ (Bay VJ + KS 4*): 6.990.000đ/khách">Combo Bangkok - Pattaya 5N4Đ (Bay VJ + KS 4*): 6.990.000đ/khách</option>
+                </select>
+              </div>
+              <div>
+                <label class="block font-bold mb-1">Số Lượng Người Tham Gia</label>
+                <input type="number" id="comboPersons" value="2" min="1" class="w-full bg-[#FAF8F5] border border-gray-200 p-2 rounded-xl">
+              </div>
+            </div>
+            <button onclick="submitServiceOrder('Combo du lịch')" class="w-full bg-[#0F3D3E] text-white font-semibold py-3 rounded-xl text-sm shadow">Xác Nhận Đặt Combo</button>
+          `;
+        } else if(serviceType === 'experience') {
+          html = `
+            <h3 class="font-serif font-bold text-xl text-[#0F3D3E] mb-2"><i class="fa-solid fa-ticket text-[#C8A96A] mr-2"></i> Vé Trải Nghiệm & Vui Chơi Giải Trí</h3>
+            <p class="text-xs text-gray-500 mb-4">Lựa chọn vé tham quan, công viên giải trí và cáp treo.</p>
+            <div class="space-y-3 text-xs mb-6">
+              <div>
+                <label class="block font-bold mb-1">Chọn Dịch Vụ Vui Chơi / Trải Nghiệm</label>
+                <select id="expChoice" class="w-full bg-[#FAF8F5] border border-gray-200 p-2 rounded-xl">
+                  <option value="Vé VinWonders Phú Quốc: 950.000đ/vé">Vé VinWonders Phú Quốc: 950.000đ/vé</option>
+                  <option value="Cáp Treo Núi Chứa Chan (Đồng Nai): 200.000đ/vé">Cáp Treo Núi Chứa Chan (Đồng Nai): 200.000đ/vé</option>
+                  <option value="Vé Cáp Treo Bà Nà Hills Đà Nẵng: 900.000đ/vé">Vé Cáp Treo Bà Nà Hills Đà Nẵng: 900.000đ/vé</option>
+                  <option value="Vé Universal Studios Singapore: 1.850.000đ/vé">Vé Universal Studios Singapore: 1.850.000đ/vé</option>
+                </select>
+              </div>
+              <div>
+                <label class="block font-bold mb-1">Số Lượng Vé</label>
+                <input type="number" id="expQty" value="2" min="1" class="w-full bg-[#FAF8F5] border border-gray-200 p-2 rounded-xl">
+              </div>
+            </div>
+            <button onclick="submitServiceOrder('Vé trải nghiệm')" class="w-full bg-[#0F3D3E] text-white font-semibold py-3 rounded-xl text-sm shadow">Xác Nhận Đặt Vé Trải Nghiệm</button>
+          `;
+        }
+
+        modalContent.innerHTML = html;
+        document.getElementById('serviceModal').classList.remove('hidden');
+      });
+    };
+
+    window.closeServiceModal = function() {
+      document.getElementById('serviceModal').classList.add('hidden');
+    };
+
+    window.submitServiceOrder = function(serviceTitle) {
+      let detailInfo = "";
+      if(serviceTitle === 'eSIM') detailInfo = document.getElementById('esimDest').value;
+      else if(serviceTitle === 'Vé máy bay') detailInfo = document.getElementById('flightFrom').value + ' ➔ ' + document.getElementById('flightTo').value + ' (' + document.getElementById('flightAirline').value + ')';
+      else if(serviceTitle === 'Khách sạn 5 sao') detailInfo = document.getElementById('hotelChoice').value + ' (' + document.getElementById('hotelNights').value + ' đêm)';
+      else if(serviceTitle === 'Combo du lịch') detailInfo = document.getElementById('comboChoice').value;
+      else if(serviceTitle === 'Vé trải nghiệm') detailInfo = document.getElementById('expChoice').value + ' (SL: ' + document.getElementById('expQty').value + ')';
+
+      userBookings.push({
+        id: 'NB-' + Math.floor(1000 + Math.random() * 9000),
+        customerName: currentUser.name,
+        phone: currentUser.phone || '0909123456',
+        email: currentUser.email,
+        type: serviceTitle,
+        title: detailInfo,
+        date: '21/11/2026',
+        total: 'Đã xác nhận',
+        status: 'Chờ thanh toán / Xuất vé'
+      });
+      updateBookingBadge();
+      closeServiceModal();
+      showToastMessage('ĐĂNG KÝ ' + serviceTitle.toUpperCase() + ' THÀNH CÔNG!\nKhách hàng: ' + currentUser.name + ' - SĐT: ' + (currentUser.phone || '0909123456') + '\nĐơn hàng đã được lưu vào hệ thống.');
+    };
+
+    window.openAiAssistantFromMenu = function() {
+      toggleAiModal();
+    };
+
+    window.filterToursByType = function(type) {
+      if(type === 'all') resetFilters();
+      document.getElementById('toursSection').scrollIntoView({ behavior: 'smooth' });
+    };
+
+    window.filterToursByRegion = function(regionName) {
+      document.querySelectorAll('input[name="destFilter"]').forEach(cb => {
+        cb.checked = cb.value === regionName;
+      });
+      applyFilters();
+      document.getElementById('toursSection').scrollIntoView({ behavior: 'smooth' });
+    };
+
+    // ROLE-BASED ACCESS CONTROL FOR BOOKING MANAGEMENT
+    window.openBookingsModal = function() {
+      const container = document.getElementById('bookingModalContent');
+
+      // 1. STAFF OR ADMIN VIEW: FULL ACCESS TO ALL CUSTOMERS & EXPORT TOOLS
+      if(isStaffOrAdmin()) {
+        const roleLabel = currentUser.role === 'admin' ? 'Quản Lý Điều Hành' : 'Nhân Viên Công Ty';
+        container.innerHTML = `
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <h3 class="font-serif font-bold text-xl text-[#0F3D3E]"><i class="fa-solid fa-shield-halved text-[#C8A96A] mr-2"></i> Quản Lý Booking & Thông Tin Khách Hàng</h3>
+            <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-3 py-1 rounded-full border border-emerald-300"><i class="fa-solid fa-user-check mr-1"></i> Quyền: ${roleLabel}</span>
+          </div>
+          <p class="text-xs text-gray-500 mb-4">Hệ thống quản trị nội bộ dành riêng cho Quản lý & Nhân viên Du Lịch Ngọc Bích (${userBookings.length} đơn hàng).</p>
+          <div class="overflow-x-auto mb-6">
+            <table class="w-full text-left text-xs border border-gray-200">
+              <thead class="bg-[#0F3D3E] text-white">
+                <tr>
+                  <th class="p-2 border">Mã Booking</th>
+                  <th class="p-2 border">Khách Hàng</th>
+                  <th class="p-2 border">Số Điện Thoại & Email</th>
+                  <th class="p-2 border">Dịch Vụ & Chi Tiết</th>
+                  <th class="p-2 border">Ngày Đi</th>
+                  <th class="p-2 border">Tổng Tiền</th>
+                  <th class="p-2 border">Trạng Thái</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${userBookings.map(b => `
+                  <tr class="hover:bg-gray-50">
+                    <td class="p-2 border font-bold">${b.id}</td>
+                    <td class="p-2 border font-semibold text-[#0F3D3E]">${escapeHtml(b.customerName)}</td>
+                    <td class="p-2 border text-gray-600">${escapeHtml(b.phone)}<br><span class="text-[10px] text-gray-400">${escapeHtml(b.email)}</span></td>
+                    <td class="p-2 border"><strong>${escapeHtml(b.type)}:</strong> ${escapeHtml(b.title)}</td>
+                    <td class="p-2 border text-gray-600">${escapeHtml(b.date)}</td>
+                    <td class="p-2 border text-red-600 font-bold">${escapeHtml(b.total)}</td>
+                    <td class="p-2 border text-emerald-600 font-semibold">${escapeHtml(b.status)}</td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button onclick="exportBookingsCSV()" class="flex-1 bg-[#0F3D3E] hover:bg-[#144c4d] text-white font-semibold py-3 rounded-xl text-xs transition shadow flex items-center justify-center gap-2">
+              <i class="fa-solid fa-file-excel"></i> Xuất File Excel (.CSV)
+            </button>
+            <button onclick="copyBookingsTSV()" class="flex-1 bg-[#C8A96A] hover:bg-[#dfbe7e] text-[#0F3D3E] font-bold py-3 rounded-xl text-xs transition shadow flex items-center justify-center gap-2">
+              <i class="fa-solid fa-copy"></i> Sao chép dán vào Google Sheets
+            </button>
+          </div>
+        `;
+        document.getElementById('bookingModal').classList.remove('hidden');
+        return;
+      }
+
+      // 2. CUSTOMER VIEW (LOGGED IN AS REGULAR CUSTOMER): ONLY OWN BOOKINGS + PRIVATE LOOKUP
+      if(currentUser && currentUser.role === 'customer') {
+        const myBookings = userBookings.filter(b =>
+          (b.email && currentUser.email && b.email.toLowerCase() === currentUser.email.toLowerCase()) ||
+          (b.phone && currentUser.phone && b.phone === currentUser.phone)
+        );
+
+        container.innerHTML = `
+          <h3 class="font-serif font-bold text-xl text-[#0F3D3E] mb-1"><i class="fa-solid fa-suitcase text-[#C8A96A] mr-2"></i> Đơn Đặt Chỗ Của Tôi</h3>
+          <p class="text-xs text-gray-500 mb-4">Xin chào <strong>${escapeHtml(currentUser.name)}</strong>. Để bảo mật thông tin khách hàng, hệ thống chỉ hiển thị các đơn đặt chỗ thuộc tài khoản của bạn.</p>
+          ${myBookings.length > 0 ? `
+            <div class="overflow-x-auto mb-5">
+              <table class="w-full text-left text-xs border border-gray-200">
+                <thead class="bg-[#0F3D3E] text-white">
+                  <tr>
+                    <th class="p-2 border">Mã Booking</th>
+                    <th class="p-2 border">Dịch Vụ & Chi Tiết</th>
+                    <th class="p-2 border">Ngày Khởi Hành</th>
+                    <th class="p-2 border">Tổng Tiền</th>
+                    <th class="p-2 border">Trạng Thái</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${myBookings.map(b => `
+                    <tr class="hover:bg-gray-50">
+                      <td class="p-2 border font-bold text-[#0F3D3E]">${b.id}</td>
+                      <td class="p-2 border"><strong>${escapeHtml(b.type)}:</strong> ${escapeHtml(b.title)}</td>
+                      <td class="p-2 border text-gray-600">${escapeHtml(b.date)}</td>
+                      <td class="p-2 border text-red-600 font-bold">${escapeHtml(b.total)}</td>
+                      <td class="p-2 border text-emerald-600 font-semibold">${escapeHtml(b.status)}</td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          ` : `
+            <div class="bg-[#FAF8F5] border border-gray-200 rounded-xl p-5 text-center text-xs text-gray-600 mb-5">
+              <i class="fa-regular fa-folder-open text-2xl text-[#C8A96A] mb-2 block"></i>
+              Bạn chưa có đơn đặt tour nào trên tài khoản này. Hãy chọn tour yêu thích để đặt chỗ ngay!
+            </div>
+          `}
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-3.5 text-xs flex flex-col sm:flex-row items-center justify-between gap-2">
+            <span class="text-gray-600"><i class="fa-solid fa-lock text-[#0F3D3E] mr-1"></i> Bạn là Quản lý hoặc Nhân viên điều hành công ty?</span>
+            <button onclick="closeBookingModal(); openAuthModal('staff');" class="bg-[#0F3D3E] text-white font-bold px-3.5 py-2 rounded-lg text-[11px] hover:bg-[#144c4d] transition">
+              Đăng Nhập Quyền Nội Bộ
+            </button>
+          </div>
+        `;
+        document.getElementById('bookingModal').classList.remove('hidden');
+        return;
+      }
+
+      // 3. GUEST VIEW (NOT LOGGED IN): PRIVATE LOOKUP BY EXACT BOOKING ID + PHONE ONLY
+      container.innerHTML = `
+        <h3 class="font-serif font-bold text-xl text-[#0F3D3E] mb-1"><i class="fa-solid fa-magnifying-glass text-[#C8A96A] mr-2"></i> Tra Cứu Booking Cá Nhân</h3>
+        <p class="text-xs text-gray-500 mb-4">Nhập chính xác <strong>Mã Booking</strong> và <strong>Số điện thoại</strong> đã đăng ký để xem thông tin đơn hàng của riêng bạn.</p>
+        <form onsubmit="handleGuestBookingLookup(event)" class="space-y-3 text-xs mb-4 bg-[#FAF8F5] p-4 rounded-xl border border-gray-200">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block font-bold text-gray-700 mb-1">Mã Booking *</label>
+              <input type="text" id="lookupCodeInput" required placeholder="VD: NB-9821" class="w-full bg-white border border-gray-300 px-3 py-2 rounded-xl focus:outline-none">
+            </div>
+            <div>
+              <label class="block font-bold text-gray-700 mb-1">Số Điện Thoại Đăng Ký *</label>
+              <input type="text" id="lookupPhoneInput" required placeholder="VD: 0901234567" class="w-full bg-white border border-gray-300 px-3 py-2 rounded-xl focus:outline-none">
+            </div>
+          </div>
+          <button type="submit" class="w-full bg-[#0F3D3E] hover:bg-[#144c4d] text-white font-bold py-2.5 rounded-xl transition shadow">
+            Tra Cứu Đơn Đặt Chỗ
+          </button>
+        </form>
+        <div id="guestLookupResult" class="mb-4"></div>
+        <div class="border-t border-gray-200 pt-3 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
+          <span class="text-gray-500">Quản lý & Nhân viên công ty muốn xem toàn bộ danh sách khách hàng:</span>
+          <button onclick="closeBookingModal(); openAuthModal('staff');" class="bg-[#C8A96A] text-[#0F3D3E] font-bold px-3.5 py-2 rounded-lg text-[11px] hover:bg-[#dfbe7e] transition">
+            <i class="fa-solid fa-shield-halved mr-1"></i> Đăng Nhập Nội Bộ
+          </button>
+        </div>
+      `;
+      document.getElementById('bookingModal').classList.remove('hidden');
+    };
+
+    window.handleGuestBookingLookup = function(e) {
+      e.preventDefault();
+      const code = document.getElementById('lookupCodeInput').value.trim().toUpperCase();
+      const phone = document.getElementById('lookupPhoneInput').value.trim();
+      const resBox = document.getElementById('guestLookupResult');
+
+      const found = userBookings.find(b => b.id.toUpperCase() === code && b.phone === phone);
+      if(!found) {
+        resBox.innerHTML = `<div class="bg-red-50 border border-red-200 text-red-700 p-3 rounded-xl text-xs"><i class="fa-solid fa-circle-exclamation mr-1"></i> Không tìm thấy đơn đặt chỗ khớp với Mã Booking <strong>${escapeHtml(code)}</strong> và SĐT <strong>${escapeHtml(phone)}</strong>.</div>`;
+        return;
+      }
+
+      resBox.innerHTML = `
+        <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-xs space-y-1.5">
+          <div class="flex justify-between items-center border-b border-emerald-200 pb-1.5">
+            <span class="font-bold text-[#0F3D3E] text-sm">Mã Booking: ${found.id}</span>
+            <span class="bg-emerald-600 text-white px-2.5 py-0.5 rounded-full text-[11px] font-bold">${found.status}</span>
+          </div>
+          <p><strong>Khách hàng:</strong> ${escapeHtml(found.customerName)} (${escapeHtml(found.phone)})</p>
+          <p><strong>Dịch vụ:</strong> ${escapeHtml(found.type)} – ${escapeHtml(found.title)}</p>
+          <p><strong>Ngày khởi hành:</strong> ${escapeHtml(found.date)}</p>
+          <p><strong>Tổng thanh toán:</strong> <span class="text-red-600 font-bold">${escapeHtml(found.total)}</span></p>
+        </div>
+      `;
+    };
+
+    window.exportBookingsCSV = function() {
+      if(!isStaffOrAdmin()) {
+        showToastMessage("Từ chối truy cập! Chỉ Quản lý hoặc Nhân viên công ty mới có quyền xuất dữ liệu khách hàng.");
+        return;
+      }
+      let csvContent = "\uFEFFMã Booking,Họ Tên Khách Hàng,Số Điện Thoại,Email,Loại Dịch Vụ,Chi Tiết Đơn Hàng,Ngày,Tổng Tiền,Trạng Thái\n";
+      userBookings.forEach(b => {
+        csvContent += `"${b.id}","${b.customerName}","${b.phone}","${b.email}","${b.type}","${b.title}","${b.date}","${b.total}","${b.status}"\n`;
+      });
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Danh_Sach_Booking_ChiTiet_NgocBich.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+    };
+
+    window.copyBookingsTSV = function() {
+      if(!isStaffOrAdmin()) {
+        showToastMessage("Từ chối truy cập! Chỉ Quản lý hoặc Nhân viên công ty mới có quyền sao chép dữ liệu khách hàng.");
+        return;
+      }
+      let tsvContent = "Mã Booking\tHọ Tên Khách Hàng\tSố Điện Thoại\tEmail\tLoại Dịch Vụ\tChi Tiết Đơn Hàng\tNgày\tTổng Tiền\tTrạng Thái\n";
+      userBookings.forEach(b => {
+        tsvContent += `${b.id}\t${b.customerName}\t${b.phone}\t${b.email}\t${b.type}\t${b.title}\t${b.date}\t${b.total}\t${b.status}\n`;
+      });
+      const textArea = document.createElement('textarea');
+      textArea.value = tsvContent;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToastMessage("Đã sao chép toàn bộ danh sách booking! Bạn có thể dán trực tiếp (Ctrl+V) vào Google Sheets hoặc Excel.");
+      } catch (err) {
+        showToastMessage("Không thể sao chép tự động. Vui lòng xuất file Excel (.CSV).");
+      }
+      document.body.removeChild(textArea);
+    };
+
+    window.closeBookingModal = function() {
+      document.getElementById('bookingModal').classList.add('hidden');
+    };
+
+    window.openCustomerLookup = function() {
+      openBookingsModal();
+    };
+
+    // REAL PHOTOGRAPH URLS FOR DONG NAI FEATURED TOUR (CHUA CHAN MOUNTAIN - GIA LAO, DONG NAI)
+    const DONG_NAI_CHUA_CHAN_REAL_IMG = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Nui_Chua_Chan_Dong_Nai.jpg/1280px-Nui_Chua_Chan_Dong_Nai.jpg";
+    const DONG_NAI_CHUA_CHAN_BACKUP_IMG = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=85";
+
+    const DEFAULT_TOUR_POLICIES = {
+      included: [
+        'Xe du lịch đời mới máy lạnh đưa đón theo suốt chương trình.',
+        'Khách sạn tiêu chuẩn 3 - 5 sao (2 khách/phòng, lẻ nam/nữ ngủ phòng 3).',
+        'Các bữa ăn theo thực đơn đặc sản địa phương ghi trong chương trình.',
+        'Vé tham quan các điểm du lịch vào cửa 01 lần.',
+        'Hướng dẫn viên tiếng Việt nhiệt tình, giàu kinh nghiệm phục vụ suốt tuyến.',
+        'Bảo hiểm du lịch trọn tour theo quy định.'
+      ],
+      excluded: [
+        'Chi phí cá nhân: giặt ủi, điện thoại, ăn uống ngoài chương trình, mua đặc sản.',
+        'Tiền tip bồi dưỡng cho hướng dẫn viên và tài xế.',
+        'Phụ thu phòng đơn (nếu khách có nhu cầu ở riêng 1 phòng).'
+      ],
+      childPolicy: [
+        'Dưới 5 tuổi: Không thu phí dịch vụ (ngủ chung giường với bố mẹ, gia đình tự lo chi phí phát sinh).',
+        'Từ 5 đến dưới 12 tuổi: Tính 50% - 75% giá tour người lớn (có suất ăn và ghế ngồi trên xe, ngủ chung giường với bố mẹ).',
+        'Từ 12 tuổi trở lên: Tính 100% giá vé như người lớn.'
+      ],
+      paymentProcess: [
+        'Đợt 1: Quý khách đặt cọc 50% tổng giá trị tour ngay khi đăng ký giữ chỗ.',
+        'Đợt 2: Thanh toán 50% số tiền còn lại trước ngày khởi hành từ 07 - 10 ngày.',
+        'Hình thức thanh toán: Tiền mặt trực tiếp tại văn phòng hoặc chuyển khoản ngân hàng.'
+      ],
+      registrationTerms: [
+        'Quý khách vui lòng cung cấp đầy đủ Họ tên theo CCCD/Hộ chiếu, ngày tháng năm sinh và số điện thoại liên hệ khi đăng ký.',
+        'Mang theo CCCD bản chính (còn hạn sử dụng) hoặc Hộ chiếu gốc khi tham gia tour.'
+      ],
+      cancellationTransferNote: [
+        'Sau khi đóng tiền, nếu Quý khách muốn chuyển/hủy tour xin vui lòng liên hệ trực tiếp văn phòng Du Lịch Ngọc Bích để làm thủ tục.',
+        'Hỗ trợ đổi tên người tham gia miễn phí trước giờ khởi hành 24 giờ (áp dụng cho tour đường bộ).'
+      ],
+      cancellationWeekday: [
+        'Trước >10 ngày khởi hành: Miễn phí (hoàn 100% tiền cọc).',
+        'Từ 06 – 10 ngày trước ngày khởi hành: Phí hủy 20% giá tour.',
+        'Từ 03 – 05 ngày trước ngày khởi hành: Phí hủy 50% giá tour.',
+        'Trong vòng 02 ngày trước ngày khởi hành (ặc vắng mặt): Phí hủy 100% giá tour.'
+      ],
+      cancellationHoliday: [
+        'Các tour khởi hành vào dịp Lễ, Tết chịu phí hủy 30% nếu báo trước 15 ngày.',
+        'Từ 08 – 14 ngày trước khởi hành: Phí hủy 50% giá tour.',
+        'Trong vòng 07 ngày trước khởi hành: Phí hủy 100% giá tour.'
+      ],
+      forceMajeure: 'Nếu tour không thể khởi hành do chưa đủ số lượng khách tối thiểu, Công ty sẽ thông báo trước ít nhất 07 ngày và hoàn trả 100% tiền cọc cho Quý khách. Trong trường hợp bất khả kháng (thiên tai, bão lũ, dịch bệnh, sự cố hàng không...), hai bên cùng thương lượng dời ngày khởi hành hoặc hoàn tiền sau khi trừ các chi phí dịch vụ đã thực hiện.',
+      contactInfo: 'Công ty TNHH Du Lịch Ngọc Bích • Địa chỉ: 280 An Dương Vương, phường Chợ Quán, TPHCM • Hotline tư vấn & đặt tour 24/7: 0397238981'
+    };
+
+    // TOURS DATABASE: FULL 30 DIVERSE DOMESTIC & INTERNATIONAL TOURS
+    const TOURS_DATA = [
+      // === ĐỒNG NAI & LÂN CẬN (3 TOURS) ===
+      {
+        id: 'dong-nai-2n1d',
+        tourCode: 'NDSGN01',
+        title: 'Khám Phá Đồng Nai 2N1Đ: Văn Miếu Trấn Biên – Làng Bưởi Tân Triều – Núi Chứa Chan',
+        region: 'Đồng Nai',
+        segment: 'tiết kiệm',
+        priceAdult: 1735000,
+        priceGroup10: 1614000,
+        duration: '2 Ngày 1 Đêm',
+        capacity: 'Nhận khách lẻ & nhóm nhỏ (1–25 khách ghép đoàn, khởi hành 20–25 khách)',
+        transport: 'Xe THACO 29 chỗ đời mới',
+        attractions: 'Văn Miếu Trấn Biên – Làng Bưởi Tân Triều – Hồ Núi Le – Núi Chứa Chan – Chùa Bửu Quang',
+        cuisine: 'Phở Ngò, Đặc sản Gỏi bưởi Tân Triều, Bánh căn, Bánh xèo rau rừng',
+        idealTime: 'Quanh năm (Đẹp nhất mùa bưởi & cuối tuần)',
+        gifts: 'Giảm 7% nhóm >=10 khách (còn 1.614.000đ) + Nón & Nước suối',
+        departureSchedule: 'Khởi hành thứ 7 hàng tuần, từ TPHCM',
+        image: DONG_NAI_CHUA_CHAN_REAL_IMG,
+        fallbackImage: DONG_NAI_CHUA_CHAN_BACKUP_IMG,
+        featured: true,
+        desc: 'Mã tour: 01 • Khởi hành thứ 7 hàng tuần từ TPHCM. Nhận khách lẻ & nhóm nhỏ linh hoạt ghép đoàn (1–25 khách, đủ đoàn 20–25 khách khởi hành). Giảm 7% nhóm từ 10 khách trở lên (chỉ còn 1.614.000 VNĐ/khách).',
+        departures: ['T7, 21/11/2026', 'T7, 28/11/2026', 'T7, 05/12/2026', 'T7, 12/12/2026'],
+        itinerary: [
+          {
+            day: 'NGÀY 01: TP.HCM – BIÊN HÒA – LONG KHÁNH',
+            details: '• Sáng: 06:30 khởi hành từ TP.HCM đi Biên Hòa. 07:30 ăn sáng Phở Ngò. 08:30 tham quan Văn miếu Trấn Biên. 10:15 tham quan, mua đặc sản Làng bưởi Tân Triều.\n• Trưa: 11:30 ăn trưa tại Quán Bờ Sông Tân Triều. 13:30 di chuyển về TP. Long Khánh.\n• Chiều: 14:45 nhận phòng KS Hapyson, nghỉ ngơi. 15:30 ngắm hoàng hôn tại Hồ Núi Le.\n• Tối: 18:30 ăn tối tại Nhà hàng Đồng Lợi. Tự do dạo phố Long Khánh, nghỉ đêm tại KS.'
+          },
+          {
+            day: 'NGÀY 02: NÚI CHỨA CHAN – TP.HCM',
+            details: '• Sáng: 06:15 trả phòng. 06:30 ăn sáng Bánh căn cô Trúc. 07:30 đi KDL Núi Chứa Chan. 08:15 đi cáp treo viếng Chùa Bửu Quang. 10:30 thăm Cây đa "3 gốc 1 ngọn".\n• Trưa: 11:00 ăn trưa Bánh xèo rau rừng quán 333. 13:00 đi cáp treo xuống núi.\n• Chiều: 13:30 khởi hành về TP.HCM. 15:30 – 16:00 về đến điểm đón, kết thúc tour.'
+          }
+        ],
+        notes: 'Quý khách vui lòng mang theo CCCD gốc, mặc đồ kín đáo khi viếng chùa và đi giày thể thao khi lên Núi Chứa Chan. Quý khách cũng lưu ý trả phòng lúc 06:15 Ngày 2, báo trước nếu ăn chay hoặc dị ứng hải sản và tự chuẩn bị thuốc cá nhân, chống nắng.'
+      },
+      {
+        id: 'nam-cat-tien-2n1d',
+        tourCode: 'NDSGN02',
+        title: 'Vườn Quốc Gia Nam Cát Tiên – Khám Phá Rừng Già & Xem Thú Đêm 2N1Đ',
+        region: 'Đồng Nai',
+        segment: 'tiết kiệm',
+        priceAdult: 2190000,
+        duration: '2 Ngày 1 Đêm',
+        transport: 'Xe du lịch đời mới',
+        attractions: 'Vườn Quốc Gia Nam Cát Tiên – Cây Tung Cổ Thụ – Bàu Sấu – Tour Xem Thú Đêm',
+        cuisine: 'Cá lăng sông Đồng Nai, Rau rừng nấu canh chua, Lẩu gà lá giang',
+        idealTime: 'Tháng 12 đến Tháng 5',
+        gifts: 'Tặng vé xe chuyên dụng xem thú đêm & Nón du lịch',
+        image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80',
+        fallbackImage: DONG_NAI_CHUA_CHAN_BACKUP_IMG,
+        featured: false,
+        desc: 'Hòa mình vào khu dự trữ sinh quyển thế giới Nam Cát Tiên, trekking rừng nguyên sinh, thăm Bàu Sấu và trải nghiệm xem thú hoang dã ban đêm.',
+        departures: ['T7, 21/11/2026', 'T7, 28/11/2026', 'T7, 05/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1: TP.HCM – VQG Nam Cát Tiên – Xem Thú Đêm', details: 'Khởi hành từ TP.HCM đi Tân Phú (Đồng Nai), qua phà vào rừng Nam Cát Tiên, tham quan cây Tung 400 tuổi, tối đi xe chuyên dụng xem thú đêm.' },
+          { day: 'Ngày 2: Khám Phá Bàu Sấu – Trở Về TP.HCM', details: 'Chinh phục tuyến trekking Bàu Sấu ngắm cá sấu nước ngọt tự nhiên, dùng cơm trưa đặc sản sông Đồng Nai và về lại TP.HCM.' }
+        ]
+      },
+      {
+        id: 'ho-tri-an-glamping-2n1d',
+        tourCode: 'NDSGN03',
+        title: 'Hồ Trị An – Đảo Ó Đồng Trường – Cắm Trại Glamping & Chèo SUP 2N1Đ',
+        region: 'Đồng Nai',
+        segment: 'tiết kiệm',
+        priceAdult: 1890000,
+        duration: '2 Ngày 1 Đêm',
+        transport: 'Xe du lịch + Cano qua đảo',
+        attractions: 'Hồ Trị An – Đảo Ó – Đảo Đồng Trường – Rừng Mã Đà – Bãi cắm trại ven hồ',
+        cuisine: 'Tiệc nướng BBQ tối bên hồ, Cá hoàng đế nướng muối ớt, Khổ qua rừng',
+        idealTime: 'Quanh năm (Đẹp nhất mùa khô tháng 11 – tháng 4)',
+        gifts: 'Tặng gói chụp ảnh Flycam & Trải nghiệm chèo SUP bình minh',
+        image: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=800&q=80',
+        fallbackImage: DONG_NAI_CHUA_CHAN_BACKUP_IMG,
+        featured: false,
+        desc: 'Trải nghiệm nghỉ dưỡng lều cao cấp Glamping ven Hồ Trị An (Vĩnh Cửu, Đồng Nai), chèo SUP đón bình minh và tiệc BBQ ấm cúng.',
+        departures: ['T7, 21/11/2026', 'T7, 28/11/2026'],
+        itinerary: [
+          { day: 'Ngày 1: TP.HCM – Hồ Trị An – Đảo Ó – Tiệc BBQ', details: 'Di chuyển đến Vĩnh Cửu, đi tàu khám phá Đảo Ó, nhận lều Glamping máy lạnh ven hồ, chèo thuyền kayak và tiệc BBQ tối.' },
+          { day: 'Ngày 2: Chèo SUP Đón Bình Minh – Rừng Mã Đà – TP.HCM', details: 'Chèo SUP ngắm mặt trời mọc trên mặt hồ phẳng lặng, đạp xe xuyên rừng Mã Đà và khởi hành về TP.HCM.' }
+        ]
+      },
+
+      // === MIỀN TÂY NAM BỘ (5 TOURS) ===
+      {
+        id: 'mien-tay-4n3d',
+        tourCode: 'NDSGN101',
+        title: 'Miền Tây: Cần Thơ – Cà Mau – Đất Mũi – Bạc Liêu – Sóc Trăng 4N3Đ',
+        region: 'Miền Tây',
+        segment: 'tiêu chuẩn',
+        priceAdult: 4790000,
+        duration: '4 Ngày 3 Đêm',
+        transport: 'Xe du lịch đời mới',
+        attractions: 'Chợ nổi Cái Răng – Cột mốc Đất Mũi Cà Mau – Nhà Công Tử Bạc Liêu – Chùa Som Rong',
+        cuisine: 'Lẩu mắm miền Tây, Cá lóc nướng trui, Ba khía Rạch Gốc, Bánh pía',
+        idealTime: 'Quanh năm',
+        gifts: 'Tặng khăn rằn Nam Bộ & Nón du lịch Ngọc Bích',
+        image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Hành trình xuôi về cực Nam Tổ quốc, khám phá chợ nổi Cái Răng buổi sớm và check-in cột mốc tọa độ Đất Mũi Cà Mau.',
+        departures: ['T5, 26/11/2026', 'T5, 03/12/2026', 'T5, 10/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1: TP.HCM – Mỹ Tho – Cần Thơ', details: 'Du ngoạn sông Tiền, thưởng thức đờn ca tài tử và nghỉ đêm tại bến Ninh Kiều.' },
+          { day: 'Ngày 2: Chợ Nổi Cái Răng – Đất Mũi Cà Mau', details: 'Tham quan chợ nổi buổi sáng sớm, di chuyển đến Cà Mau check-in cột mốc tọa độ quốc gia.' },
+          { day: 'Ngày 3: Cà Mau – Bạc Liêu – Sóc Trăng', details: 'Thăm nhà Công tử Bạc Liêu, cánh đồng điện gió, chùa Som Rong.' },
+          { day: 'Ngày 4: Sóc Trăng – TP.HCM', details: 'Mua sắm đặc sản bánh pía và khởi hành về lại TP.HCM.' }
+        ]
+      },
+      {
+        id: 'phu-quoc-3n2d',
+        tourCode: 'NDSGN102',
+        title: 'Đảo Ngọc Phú Quốc 5 Sao & Du Thuyền Hoàng Hôn 3N2Đ',
+        region: 'Miền Tây',
+        segment: 'cao cấp',
+        priceAdult: 6890000,
+        duration: '3 Ngày 2 Đêm',
+        transport: 'Máy bay + Xe du lịch',
+        attractions: 'Cáp treo Hòn Thơm – Hòn Mây Rút – Sunset Town – Dinh Cậu – Grand World',
+        cuisine: 'Buffet sáng 5 sao, Hải sản Hàm Ninh, Gỏi cá trích, Bún quậy',
+        idealTime: 'Tháng 10 đến Tháng 4 năm sau',
+        gifts: 'Tặng vé ngắm pháo hoa Kiss of the Sea & Voucher Spa',
+        image: 'https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Nghỉ dưỡng tại resort 5 sao biển Bãi Trường, trải nghiệm du thuyền ngắm hoàng hôn và cáp treo Hòn Thơm vượt biển.',
+        departures: ['T6, 20/11/2026', 'T6, 27/11/2026', 'T6, 04/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1: Khám phá Nam Đảo & Cáp treo Hòn Thơm', details: 'Đón sân bay Phú Quốc, thăm Hòn Thơm, trải nghiệm cáp treo vượt biển dài nhất thế giới.' },
+          { day: 'Ngày 2: Trải nghiệm Du Thuyền & Lặn ngắm san hô', details: 'Tham gia tour cano đảo, lặn ngắm san hô tại Hòn Mây Rút và tiệc hoàng hôn trên du thuyền.' },
+          { day: 'Ngày 3: Mua sắm đặc sản & Tiễn sân bay', details: 'Thăm nhà thùng nước mắm, vườn tiêu và khởi hành về lại điểm hẹn.' }
+        ]
+      },
+      {
+        id: 'chau-doc-tra-su-2n1d',
+        tourCode: 'NDSGN103',
+        title: 'Châu Đốc – Rừng Tràm Trà Sư – Núi Cấm – Miếu Bà Chúa Xứ 2N1Đ',
+        region: 'Miền Tây',
+        segment: 'tiết kiệm',
+        priceAdult: 2290000,
+        duration: '2 Ngày 1 Đêm',
+        transport: 'Xe du lịch đời mới',
+        attractions: 'Miếu Bà Chúa Xứ Núi Sam – Rừng Tràm Trà Sư – KDL Núi Cấm – Chợ Tịnh Biên',
+        cuisine: 'Bún cá Châu Đốc, Lẩu mắm, Gà đốt Ô Thum, Thốt nốt tươi',
+        idealTime: 'Quanh năm (Đẹp nhất mùa nước nổi tháng 8 – tháng 11)',
+        gifts: 'Bao gồm vé xuồng chèo tay xuyên rừng tràm Trà Sư',
+        image: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Hành hương Miếu Bà Chúa Xứ linh thiêng và ngồi xuồng ba lá len lỏi qua thảm bèo xanh mướt tại Rừng tràm Trà Sư.',
+        departures: ['T7, 21/11/2026', 'T7, 28/11/2026'],
+        itinerary: [
+          { day: 'Ngày 1: TP.HCM – Châu Đốc – Rừng Tràm Trà Sư', details: 'Khởi hành đi An Giang, ngồi tắc ráng và xuồng ba lá khám phá Rừng tràm Trà Sư, tối viếng Miếu Bà Chúa Xứ.' },
+          { day: 'Ngày 2: Chinh Phục Núi Cấm – Chợ Tịnh Biên – TP.HCM', details: 'Đi cáp treo lên Thiên Cấm Sơn, mua sắm đặc sản mắm Châu Đốc và trở về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'con-dao-huyen-thoai-3n2d',
+        tourCode: 'NDSGN104',
+        title: 'Côn Đảo Huyền Thoại: Viếng Mộ Cô Sáu – Nhà Tù Côn Đảo – Bãi Đầm Trầu 3N2Đ',
+        region: 'Miền Tây',
+        segment: 'cao cấp',
+        priceAdult: 7490000,
+        duration: '3 Ngày 2 Đêm',
+        transport: 'Máy bay khứ hồi + Xe du lịch',
+        attractions: 'Nghĩa trang Hàng Dương – Mộ Chị Võ Thị Sáu – Dinh Chúa Đảo – Bãi Đầm Trầu – Chùa Núi Một',
+        cuisine: 'Hải sản tươi sống Côn Đảo, Ốc vú nàng, Mứt hạt bàng',
+        idealTime: 'Tháng 3 đến Tháng 9',
+        gifts: 'Hỗ trợ chuẩn bị mâm lễ viếng Nghĩa trang Hàng Dương',
+        image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Hành trình tâm linh ý nghĩa và nghỉ dưỡng biển hoang sơ tại Côn Đảo, viếng Nghĩa trang Hàng Dương lúc nửa đêm.',
+        departures: ['T6, 20/11/2026', 'T6, 04/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1: Bay Côn Đảo – Hệ Thống Nhà Tù – Viếng Đêm Hàng Dương', details: 'Tham quan Dinh Chúa Đảo, Trại Phú Hải, Chuồng Cọp; tối viếng Nghĩa trang Hàng Dương và Mộ Cô Sáu.' },
+          { day: 'Ngày 2: Chùa Núi Một – Miếu Bà Phi Yến – Bãi Đầm Trầu', details: 'Chiêm bái Vân Sơn Tự, tắm biển Bãi Đầm Trầu ngắm máy bay hạ cánh sát biển.' },
+          { day: 'Ngày 3: Chợ Côn Đảo – Bay Về TP.HCM', details: 'Mua đặc sản hạt bàng rang muối và bay về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'ben-tre-tien-giang-1n',
+        tourCode: 'NDSGN105',
+        title: 'Miệt Vườn Sông Nước Bến Tre – Mỹ Tho – Tứ Linh Long Lân Quy Phụng 1 Ngày',
+        region: 'Miền Tây',
+        segment: 'tiết kiệm',
+        priceAdult: 1150000,
+        duration: '1 Ngày',
+        transport: 'Xe du lịch + Thuyền máy sông Tiền',
+        attractions: 'Chùa Vĩnh Tràng – Cồn Thới Sơn – Cồn Phụng – Lò kẹo dừa Bến Tre',
+        cuisine: 'Cá tai tượng chiên xù cuốn bánh tráng, Xôi chiên phồng, Trái cây miệt vườn',
+        idealTime: 'Quanh năm',
+        gifts: 'Thưởng thức trà mật ong hoa nhãn & Đờn ca tài tử miễn phí',
+        image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Chuyến đi trong ngày trải nghiệm trọn vẹn văn hóa miệt vườn Nam Bộ, đi xuồng chèo rạch dừa nước và thưởng thức trái cây.',
+        departures: ['T7, 21/11/2026', 'CN, 22/11/2026', 'T7, 28/11/2026'],
+        itinerary: [
+          { day: 'Trọn Ngày: TP.HCM – Mỹ Tho – Bến Tre – TP.HCM', details: 'Viếng Chùa Vĩnh Tràng, đi thuyền qua Cồn Thới Sơn, nghe đờn ca tài tử, chèo xuồng rạch dừa, thăm Cồn Phụng và về lại TP.HCM.' }
+        ]
+      },
+
+      // === MIỀN TRUNG - TÂY NGUYÊN (8 TOURS) ===
+      {
+        id: 'da-nang-hoi-an-4n3d',
+        tourCode: 'NDSGN201',
+        title: 'Đà Nẵng – Bà Nà Hills – Cầu Vàng – Phố Cổ Hội An – Rừng Dừa Bảy Mẫu 4N3Đ',
+        region: 'Miền Trung - Tây Nguyên',
+        segment: 'tiêu chuẩn',
+        priceAdult: 5890000,
+        duration: '4 Ngày 3 Đêm',
+        transport: 'Máy bay khứ hồi + Xe du lịch',
+        attractions: 'Bà Nà Hills – Cầu Vàng – Phố cổ Hội An – Rừng dừa Bảy Mẫu – Bán đảo Sơn Trà',
+        cuisine: 'Mì Quảng, Cao lầu Hội An, Bánh tráng cuốn thịt heo, Buffet Bà Nà',
+        idealTime: 'Tháng 2 đến Tháng 8',
+        gifts: 'Bao gồm vé cáp treo Bà Nà Hills & Thả hoa đăng sông Hoài',
+        image: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Check-in Cầu Vàng trên đỉnh Bà Nà Hills, dạo bước Phố cổ Hội An lung linh đèn lồng và trải nghiệm thúng chai Rừng dừa.',
+        departures: ['T5, 26/11/2026', 'T5, 03/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1: Đà Nẵng – Sơn Trà – Biển Mỹ Khê', details: 'Bay đến Đà Nẵng, viếng Chùa Linh Ứng Bãi Bụt, tắm biển Mỹ Khê.' },
+          { day: 'Ngày 2: Bà Nà Hills – Cầu Vàng – Hội An', details: 'Lên đỉnh Bà Nà Hills check-in Cầu Vàng, tối dạo phố cổ Hội An.' },
+          { day: 'Ngày 3: Rừng Dừa Bảy Mẫu – Ngũ Hành Sơn', details: 'Trải nghiệm thuyền thúng Rừng dừa và tham quan danh thắng Ngũ Hành Sơn.' },
+          { day: 'Ngày 4: Chợ Hàn – Bay Về TP.HCM', details: 'Mua sắm đặc sản miền Trung và bay về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'hue-di-san-3n2d',
+        tourCode: 'NDSGN202',
+        title: 'Cố Đô Huế: Đại Nội – Lăng Khải Định – Chùa Thiên Mụ – Ca Huế Sông Hương 3N2Đ',
+        region: 'Miền Trung - Tây Nguyên',
+        segment: 'tiêu chuẩn',
+        priceAdult: 4990000,
+        duration: '3 Ngày 2 Đêm',
+        transport: 'Máy bay khứ hồi + Xe du lịch',
+        attractions: 'Đại Nội Kinh Thành Huế – Lăng Khải Định – Lăng Tự Đức – Chùa Thiên Mụ – Sông Hương',
+        cuisine: 'Cơm cung đình Huế, Bún bò Huế, Bánh bèo nậm lọc, Chè hẻm',
+        idealTime: 'Tháng 1 đến Tháng 4 & Tháng 9 đến Tháng 11',
+        gifts: 'Tặng vé nghe Ca Huế trên thuyền rồng sông Hương',
+        image: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Khám phá quần thể di tích Cố đô Huế trầm mặc, thưởng thức ẩm thực cung đình và nghe nhã nhạc trên dòng sông Hương thơ mộng.',
+        departures: ['T6, 20/11/2026', 'T6, 04/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1: Bay Huế – Đại Nội – Chùa Thiên Mụ', details: 'Tham quan Hoàng Thành Huế, Ngọ Môn, Điện Thái Hòa và viếng Chùa Thiên Mụ.' },
+          { day: 'Ngày 2: Hệ Thống Lăng Tẩm – Làng Hương Thủy Xuân', details: 'Khám phá Lăng Khải Định, Lăng Minh Mạng, chụp ảnh tại Làng hương Thủy Xuân.' },
+          { day: 'Ngày 3: Chợ Đông Ba – Bay Về TP.HCM', details: 'Mua mè xửng, tôm chua Huế và bay về lại TP.HCM.' }
+        ]
+      },
+      {
+        id: 'quy-nhon-phu-yen-4n3d',
+        tourCode: 'NDSGN203',
+        title: 'Quy Nhơn – Kỳ Co – Eo Gió – Phú Yên – Gành Đá Đĩa – Bãi Xép 4N3Đ',
+        region: 'Miền Trung - Tây Nguyên',
+        segment: 'tiêu chuẩn',
+        priceAdult: 5490000,
+        duration: '4 Ngày 3 Đêm',
+        transport: 'Máy bay khứ hồi + Xe du lịch',
+        attractions: 'Đảo Kỳ Co – Eo Gió – Tháp Đôi – Gành Đá Đĩa – Bãi Xép Hoa Vàng Cỏ Xanh',
+        cuisine: 'Hải sản đầm Ô Loan, Mắt cá ngừ đại dương, Bánh xèo tôm nhảy',
+        idealTime: 'Tháng 2 đến Tháng 9',
+        gifts: 'Bao gồm tour cano Kỳ Co & Lặn ngắm san hô Bãi Dứa',
+        image: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Chiêm ngưỡng vẻ đẹp thiên đường biển đảo Kỳ Co – Eo Gió và kỳ quan thiên nhiên Gành Đá Đĩa độc nhất vô nhị tại Phú Yên.',
+        departures: ['T5, 26/11/2026', 'T5, 10/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1: Quy Nhơn – Tháp Đôi – KDL Ghềnh Ráng', details: 'Viếng mộ Hàn Mặc Tử, Bãi tắm Hoàng Hậu và Tháp Đôi Chămpa.' },
+          { day: 'Ngày 2: Thiên Đường Biển Kỳ Co – Eo Gió', details: 'Đi cano ra bãi Kỳ Co tắm biển, lặn san hô và ngắm hoàng hôn Eo Gió.' },
+          { day: 'Ngày 3: Phú Yên – Gành Đá Đĩa – Bãi Xép', details: 'Khám phá Gành Đá Đĩa, Nhà thờ Mằng Lăng và phim trường Bãi Xép.' },
+          { day: 'Ngày 4: Tháp Nghinh Phong – Bay Về TP.HCM', details: 'Check-in Quảng trường Tháp Nghinh Phong và bay về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'nha-trang-vinwonders-3n2d',
+        tourCode: 'NDSGN204',
+        title: 'Nha Trang Biển Gọi: Vịnh San Hô – Hòn Tằm – VinWonders – Tắm Bùn Khoáng 3N2Đ',
+        region: 'Miền Trung - Tây Nguyên',
+        segment: 'tiêu chuẩn',
+        priceAdult: 4390000,
+        duration: '3 Ngày 2 Đêm',
+        transport: 'Xe giường nằm VIP / Máy bay',
+        attractions: 'Vịnh Nha Trang – Hòn Tằm – Tháp Bà Ponagar – Chùa Long Sơn – VinWonders',
+        cuisine: 'Bún chả cá Nha Trang, Nem nướng Ninh Hòa, Hải sản làng chài',
+        idealTime: 'Tháng 1 đến Tháng 9',
+        gifts: 'Tặng gói tắm bùn khoáng nóng cao cấp tại Hòn Tằm',
+        image: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Tận hưởng kỳ nghỉ sôi động tại thành phố biển Nha Trang với tour du ngoạn 3 đảo, tắm bùn khoáng và vui chơi tại VinWonders.',
+        departures: ['T6, 20/11/2026', 'T6, 27/11/2026'],
+        itinerary: [
+          { day: 'Ngày 1: Nha Trang – Tháp Bà Ponagar – Chùa Long Sơn', details: 'Tham quan các biểu tượng văn hóa Nha Trang và tắm biển Trần Phú.' },
+          { day: 'Ngày 2: Du Ngoạn Vịnh Nha Trang – Hòn Tằm – VinWonders', details: 'Tắm bùn khoáng trên đảo Hòn Tằm, chiều vui chơi VinWonders và xem Tata Show.' },
+          { day: 'Ngày 3: Nhà Yến – Chợ Đầm – Trở Về TP.HCM', details: 'Mua đặc sản yến sào Khánh Hòa và khởi hành về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'da-lat-san-may-3n2d',
+        tourCode: 'NDSGN205',
+        title: 'Đà Lạt Mộng Mơ: Săn Mây Cầu Gỗ – Đồi Chè Cầu Đất – Samten Hills 3N2Đ',
+        region: 'Miền Trung - Tây Nguyên',
+        segment: 'tiết kiệm',
+        priceAdult: 2790000,
+        duration: '3 Ngày 2 Đêm',
+        transport: 'Xe du lịch giường nằm / Limousine',
+        attractions: 'Đồi chè Cầu Đất – Săn mây Đại Ngàn – Samten Hills Dalat – Hồ Xuân Hương – Chợ Đêm',
+        cuisine: 'Lẩu gà lá é, Buffet rau không giới hạn, Bánh căn Đà Lạt',
+        idealTime: 'Quanh năm (Đẹp nhất mùa hoa dã quỳ & mai anh đào tháng 11 – tháng 3)',
+        gifts: 'Tặng vé tham quan Samten Hills & Bữa tiệc Buffet rau',
+        image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Trải nghiệm không khí se lạnh xứ ngàn hoa, săn mây sáng sớm trên đồi chè Cầu Đất và chiêm bái Đại Bảo Tháp Kinh Luân.',
+        departures: ['T6, 20/11/2026', 'T6, 27/11/2026', 'T6, 04/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1: TP.HCM – Samten Hills Dalat – Đà Lạt', details: 'Check-in không gian văn hóa tâm linh Samten Hills, nhận phòng khách sạn gần chợ Đà Lạt.' },
+          { day: 'Ngày 2: Săn Mây Cầu Đất – Puppy Farm – Langbiang', details: 'Săn mây lúc bình minh, tham quan vườn dâu công nghệ cao và chinh phục đỉnh Langbiang.' },
+          { day: 'Ngày 3: Thiền Viện Trúc Lâm – Hồ Tuyền Lâm – TP.HCM', details: 'Dạo bước Thiền viện Trúc Lâm thanh tịnh và khởi hành về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'tay-nguyen-buon-ma-thuot-3n2d',
+        tourCode: 'NDSGN206',
+        title: 'Đại Ngàn Tây Nguyên: Buôn Ma Thuột – Thác Dray Nur – Hồ Lắk – Buôn Đôn 3N2Đ',
+        region: 'Miền Trung - Tây Nguyên',
+        segment: 'tiêu chuẩn',
+        priceAdult: 3590000,
+        duration: '3 Ngày 2 Đêm',
+        transport: 'Xe du lịch đời mới',
+        attractions: 'Thác Dray Nur – Bảo tàng Thế giới Cà phê – Buôn Đôn – Hồ Lắk – Chùa Sắc Tứ Khải Đoan',
+        cuisine: 'Cơm lam gà nướng Bản Đôn, Cá lăng sông Sêrêpốk, Cà phê Ban Mê',
+        idealTime: 'Tháng 11 đến Tháng 4 (Mùa hoa cà phê nở trắng)',
+        gifts: 'Tặng vé vào cổng Bảo tàng Thế giới Cà phê & Giao lưu Cồng chiêng',
+        image: 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Khám phá thủ phủ cà phê Buôn Ma Thuột, chiêm ngưỡng thác Dray Nur hùng vĩ và giao lưu văn hóa cồng chiêng Tây Nguyên.',
+        departures: ['T6, 27/11/2026', 'T6, 11/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1: TP.HCM – Thác Dray Nur – Buôn Ma Thuột', details: 'Chiêm ngưỡng ngọn thác hùng vĩ nhất Tây Nguyên, tối thưởng thức đặc sản gà nướng cơm lam.' },
+          { day: 'Ngày 2: Bảo Tàng Cà Phê – Buôn Đôn – Hồ Lắk', details: 'Check-in Bảo tàng Thế giới Cà phê, thăm cầu treo Buôn Đôn và đi thuyền độc mộc Hồ Lắk.' },
+          { day: 'Ngày 3: Chùa Khải Đoan – Làng Cà Phê Trung Nguyên – TP.HCM', details: 'Thưởng thức cà phê Ban Mê chính hiệu và trở về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'dao-ly-son-3n2d',
+        tourCode: 'NDSGN207',
+        title: 'Đảo Lý Sơn – Vương Quốc Tỏi – Cổng Tò Vò – Đảo Bé An Bình 3N2Đ',
+        region: 'Miền Trung - Tây Nguyên',
+        segment: 'tiêu chuẩn',
+        priceAdult: 5290000,
+        duration: '3 Ngày 2 Đêm',
+        transport: 'Máy bay + Tàu cao tốc ra đảo',
+        attractions: 'Cổng Tò Vò – Đỉnh Thới Lới – Hang Câu – Chùa Hang – Đảo Bé An Bình',
+        cuisine: 'Gỏi tỏi Lý Sơn, Cua huỳnh đế, Nhum biển nướng mỡ hành, Chè xoa xoa',
+        idealTime: 'Tháng 3 đến Tháng 8',
+        gifts: 'Bao gồm vé tàu cao tốc khứ hồi Đảo Lớn & Đảo Bé',
+        image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Khám phá hòn đảo núi lửa triệu năm với làn nước xanh ngọc bích tại Đảo Bé và ngắm hoàng hôn kỳ ảo qua Cổng Tò Vò.',
+        departures: ['T6, 04/12/2026', 'T6, 18/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1: Chu Lai – Cảng Sa Kỳ – Đảo Lý Sơn – Cổng Tò Vò', details: 'Đi tàu cao tốc ra đảo Lý Sơn, viếng Chùa Đục và đón hoàng hôn tại Cổng Tò Vò.' },
+          { day: 'Ngày 2: Đảo Bé An Bình – Đỉnh Thới Lới – Hang Câu', details: 'Tắm biển Bãi Ngang Đảo Bé, chinh phục cột cờ Tổ quốc trên đỉnh núi lửa Thới Lới.' },
+          { day: 'Ngày 3: Âm Linh Tự – Bay Về TP.HCM', details: 'Dâng hương Đội Hoàng Sa kiêm quản Bắc Hải và bay về lại TP.HCM.' }
+        ]
+      },
+      {
+        id: 'phan-thiet-mui-ne-2n1d',
+        tourCode: 'NDSGN208',
+        title: 'Phan Thiết – Mũi Né – Đồi Cát Trắng Bàu Trắng – Lâu Đài Rượu Vang 2N1Đ',
+        region: 'Miền Trung - Tây Nguyên',
+        segment: 'tiết kiệm',
+        priceAdult: 1990000,
+        duration: '2 Ngày 1 Đêm',
+        transport: 'Xe du lịch đời mới (Cao tốc Dầu Giây – Phan Thiết)',
+        attractions: 'Bàu Trắng (Tiểu sa mạc Sahara) – Lâu đài Rượu Vang – Suối Tiên – Làng chài Mũi Né',
+        cuisine: 'Lẩu thả Mũi Né, Hải sản tươi sống, Bánh căn Phan Thiết',
+        idealTime: 'Quanh năm',
+        gifts: 'Tặng vé tham quan Lâu đài Rượu Vang & Thưởng thức vang Napa Valley',
+        image: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Di chuyển siêu nhanh qua tuyến cao tốc mới chỉ hơn 2 giờ, nghỉ dưỡng resort sát biển Mũi Né và trải nghiệm xe Jeep Bàu Trắng.',
+        departures: ['T7, 21/11/2026', 'T7, 28/11/2026', 'T7, 05/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1: TP.HCM – Lâu Đài Rượu Vang – Resort Mũi Né', details: 'Khởi hành theo cao tốc đến Phan Thiết, tham quan Lâu đài Rượu Vang, nghỉ dưỡng resort biển.' },
+          { day: 'Ngày 2: Đồi Cát Bàu Trắng – Suối Tiên – TP.HCM', details: 'Chinh phục đồi cát trắng Bàu Trắng, lội suối Tiên và mua sắm nước mắm Phan Thiết về TP.HCM.' }
+        ]
+      },
+
+      // === MIỀN BẮC (6 TOURS) ===
+      {
+        id: 'ha-long-3n2d',
+        tourCode: 'NDSGN301',
+        title: 'Kỳ Quan Vịnh Hạ Long – Du Thuyền 5 Sao & Non Thiêng Yên Tử 3N2Đ',
+        region: 'Miền Bắc',
+        segment: 'cao cấp',
+        priceAdult: 5490000,
+        duration: '3 Ngày 2 Đêm',
+        transport: 'Máy bay + Du thuyền 5 Sao',
+        attractions: 'Vịnh Hạ Long – Hang Sửng Sốt – Đảo Titop – Khu di tích Yên Tử – Phố cổ Hà Nội',
+        cuisine: 'Buffet hải sản trên du thuyền, Chả mực Hạ Long, Phở Hà Nội',
+        idealTime: 'Quanh năm',
+        gifts: 'Tặng tiệc trà chiều trên boong tàu & Vé cáp treo Yên Tử',
+        image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Trải nghiệm ngủ đêm trên du thuyền 5 sao vịnh Hạ Long, thăm hang động kỳ vĩ và hành hương non thiêng Yên Tử.',
+        departures: ['T7, 21/11/2026', 'T7, 28/11/2026', 'T5, 10/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1: Bay Hà Nội – Du Thuyền 5 Sao Vịnh Hạ Long', details: 'Đón sân bay Nội Bài, di chuyển ra cảng Tuần Châu lên du thuyền 5 sao, thăm Hang Sửng Sốt.' },
+          { day: 'Ngày 2: Đảo Titop – Khu Di Tích Yên Tử', details: 'Chèo kayak buổi sáng, chiều hành hương non thiêng Yên Tử.' },
+          { day: 'Ngày 3: Phố Cổ Hà Nội – Bay Về TP.HCM', details: 'Thăm Văn Miếu Quốc Tử Giám, Hồ Hoàn Kiếm và bay về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'sapa-fansipan-4n3d',
+        tourCode: 'NDSGN302',
+        title: 'Hà Nội – Sa Pa – Chinh Phục Đỉnh Fansipan – Bản Cát Cát 4N3Đ',
+        region: 'Miền Bắc',
+        segment: 'tiêu chuẩn',
+        priceAdult: 6590000,
+        duration: '4 Ngày 3 Đêm',
+        transport: 'Máy bay khứ hồi + Xe du lịch cao tốc Nội Bài – Lào Cai',
+        attractions: 'Đỉnh Fansipan 3.143m – Bản Cát Cát – Nhà thờ Đá Sa Pa – Moana Sa Pa – Hồ Gươm',
+        cuisine: 'Lẩu cá hồi Sa Pa, Thắng cố, Thịt trâu gác bếp, Bún chả Hà Nội',
+        idealTime: 'Tháng 9 – Tháng 11 (Mùa lúa chín & săn mây) & Tháng 12 – Tháng 2 (Săn tuyết)',
+        gifts: 'Tặng vé tàu hỏa leo núi Mường Hoa & Nón len giữ ấm',
+        image: 'https://images.unsplash.com/photo-1504214208698-ea1916a2195a?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Chinh phục Nóc nhà Đông Dương Fansipan bằng cáp treo, khám phá văn hóa bản Cát Cát và thưởng thức đặc sản vùng cao Tây Bắc.',
+        departures: ['T5, 26/11/2026', 'T5, 03/12/2026', 'T5, 17/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1: Bay Hà Nội – Cao Tốc Sa Pa – Bản Cát Cát', details: 'Khởi hành đi Sa Pa, dạo bộ khám phá bản Cát Cát của người H’Mông.' },
+          { day: 'Ngày 2: Chinh Phục Đỉnh Fansipan – Moana Sa Pa', details: 'Đi cáp treo chạm tay vào cột mốc 3.143m Fansipan, chiều check-in Moana.' },
+          { day: 'Ngày 3: Đèo Ô Quy Hồ – Trở Về Thủ Đô Hà Nội', details: 'Ngắm cảnh Cổng Trời Ô Quy Hồ, chiều về Hà Nội dạo phố cổ 36 phố phường.' },
+          { day: 'Ngày 4: Lăng Bác – Văn Miếu – Bay Về TP.HCM', details: 'Viếng Lăng Chủ tịch Hồ Chí Minh, Chùa Một Cột và bay về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'ha-giang-dong-van-4n3d',
+        tourCode: 'NDSGN303',
+        title: 'Hà Giang – Cao Nguyên Đá Đồng Văn – Đèo Mã Pí Lèng – Sông Nho Quế 4N3Đ',
+        region: 'Miền Bắc',
+        segment: 'cao cấp',
+        priceAdult: 7290000,
+        duration: '4 Ngày 3 Đêm',
+        transport: 'Máy bay khứ hồi + Xe chuyên dụng vùng cao',
+        attractions: 'Cột cờ Lũng Cú – Đèo Mã Pí Lèng – Hẻm Tu Sản Sông Nho Quế – Dinh Vua Mèo – Phố cổ Đồng Văn',
+        cuisine: 'Cháo ấu tẩu, Lẩu gà đen, Bánh tam giác mạch, Rượu ngô men lá',
+        idealTime: 'Tháng 10 – Tháng 12 (Mùa hoa tam giác mạch) & Tháng 1 – Tháng 3 (Hoa đào, hoa mận)',
+        gifts: 'Bao gồm vé du thuyền hẻm vực Tu Sản – Sông Nho Quế',
+        image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Hành trình kỳ vĩ nơi địa đầu Tổ quốc, đi thuyền trên dòng sông Nho Quế xanh ngọc bích dưới chân đèo Mã Pí Lèng.',
+        departures: ['T5, 26/11/2026', 'T5, 10/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1: Hà Nội – TP. Hà Giang – Quản Bạ – Yên Minh', details: 'Check-in Km0 Hà Giang, Cổng Trời Quản Bạ và Núi Đôi Cô Tiên.' },
+          { day: 'Ngày 2: Dinh Vua Mèo – Cột Cờ Lũng Cú – Phố Cổ Đồng Văn', details: 'Chạm điểm cực Bắc Lũng Cú và thưởng thức cà phê Phố Cổ Đồng Văn.' },
+          { day: 'Ngày 3: Đèo Mã Pí Lèng – Du Thuyền Sông Nho Quế', details: 'Chinh phục tứ đại đỉnh đèo Mã Pí Lèng và đi thuyền qua hẻm vực Tu Sản.' },
+          { day: 'Ngày 4: Hà Giang – Sân Bay Nội Bài – TP.HCM', details: 'Khởi hành về sân bay Nội Bài làm thủ tục bay về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'ninh-binh-trang-an-3n2d',
+        tourCode: 'NDSGN304',
+        title: 'Ninh Bình – Quần Thể Danh Thắng Tràng An – Chùa Bái Đính – Hang Múa 3N2Đ',
+        region: 'Miền Bắc',
+        segment: 'tiêu chuẩn',
+        priceAdult: 5190000,
+        duration: '3 Ngày 2 Đêm',
+        transport: 'Máy bay khứ hồi + Xe du lịch',
+        attractions: 'KDL Tràng An – Chùa Bái Đính – Đỉnh Ngọa Long Hang Múa – Cố đô Hoa Lư',
+        cuisine: 'Cơm cháy Ninh Bình, Thịt dê núi tái chanh, Miến lươn',
+        idealTime: 'Quanh năm (Đẹp nhất mùa lúa chín Tam Cốc tháng 5 – tháng 6)',
+        gifts: 'Bao gồm vé thuyền đò Tràng An & Xe điện Chùa Bái Đính',
+        image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Chiêm ngưỡng "Vịnh Hạ Long trên cạn" Tràng An, chinh phục 500 bậc đá Hang Múa ngắm toàn cảnh Tam Cốc.',
+        departures: ['T6, 20/11/2026', 'T6, 04/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1: Bay Hà Nội – Chùa Bái Đính – Ninh Bình', details: 'Chiêm bái quần thể Chùa Bái Đính kỷ lục châu Á và thưởng thức đặc sản dê núi.' },
+          { day: 'Ngày 2: Di Sản Tràng An – Đỉnh Hang Múa', details: 'Ngồi thuyền xuyên hệ thống hang động Tràng An, chiều leo đỉnh Hang Múa.' },
+          { day: 'Ngày 3: Cố Đô Hoa Lư – Hà Nội – TP.HCM', details: 'Thăm đền vua Đinh – vua Lê và bay về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'moc-chau-son-la-3n2d',
+        tourCode: 'NDSGN305',
+        title: 'Mộc Châu – Cầu Kính Bạch Long – Đồi Chè Trái Tim – Thác Dải Yếm 3N2Đ',
+        region: 'Miền Bắc',
+        segment: 'tiêu chuẩn',
+        priceAdult: 5390000,
+        duration: '3 Ngày 2 Đêm',
+        transport: 'Máy bay khứ hồi + Xe du lịch',
+        attractions: 'Cầu kính Bạch Long – Đồi chè Trái Tim – Thác Dải Yếm – Rừng thông Bản Áng',
+        cuisine: 'Bê chao Mộc Châu, Cá suối nướng, Cải mèo luộc chấm trứng',
+        idealTime: 'Tháng 10 – Tháng 3 (Mùa hoa cải trắng, hoa mận, hoa đào)',
+        gifts: 'Tặng vé trải nghiệm Cầu kính đi bộ dài nhất thế giới Bạch Long',
+        image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Thử thách bản thân trên Cầu kính Bạch Long kỷ lục Guinness và đắm mình giữa cao nguyên Mộc Châu ngập tràn sắc hoa.',
+        departures: ['T6, 27/11/2026', 'T6, 11/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1: Hà Nội – Đèo Đá Trắng Mai Châu – Mộc Châu', details: 'Check-in đèo Thung Khe (Đèo Đá Trắng), đến cao nguyên Mộc Châu.' },
+          { day: 'Ngày 2: Cầu Kính Bạch Long – Đồi Chè Trái Tim – Bản Áng', details: 'Trải nghiệm cầu kính Bạch Long, thăm đồi chè xanh mướt và rừng thông Bản Áng.' },
+          { day: 'Ngày 3: Thác Dải Yếm – Sân Bay Nội Bài – TP.HCM', details: 'Tham quan thác Dải Yếm, mua sữa tươi Mộc Châu và bay về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'cao-bang-ban-gioc-4n3d',
+        tourCode: 'NDSGN306',
+        title: 'Cao Bằng – Thác Bản Giốc – Động Ngườm Ngao – Khu Di Tích Pác Bó 4N3Đ',
+        region: 'Miền Bắc',
+        segment: 'cao cấp',
+        priceAdult: 6990000,
+        duration: '4 Ngày 3 Đêm',
+        transport: 'Máy bay khứ hồi + Xe du lịch',
+        attractions: 'Thác Bản Giốc – Động Ngườm Ngao – Suối Lê Nin – Hang Pác Bó – Hồ Ba Bể',
+        cuisine: 'Vịt quay 7 vị Cao Bằng, Bánh cuốn canh, Hạt dẻ Trùng Khánh',
+        idealTime: 'Tháng 8 đến Tháng 11 (Mùa thác nước đầy và lúa chín vàng)',
+        gifts: 'Bao gồm vé thuyền bè tiến sát chân Thác Bản Giốc',
+        image: 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Chiêm ngưỡng Thác Bản Giốc – thác nước tự nhiên lớn nhất Đông Nam Á và hành hương về cội nguồn cách mạng Pác Bó.',
+        departures: ['T5, 03/12/2026', 'T5, 17/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1: Hà Nội – Hồ Ba Bể – TP. Cao Bằng', details: 'Du ngoạn Hồ Ba Bể xanh ngắt giữa núi rừng Đông Bắc, di chuyển đến Cao Bằng.' },
+          { day: 'Ngày 2: Thác Bản Giốc – Động Ngườm Ngao – Chùa Phật Tích', details: 'Đi bè ngắm Thác Bản Giốc hùng vĩ và khám phá thạch nhũ Động Ngườm Ngao.' },
+          { day: 'Ngày 3: Khu Di Tích Pác Bó – Suối Lê Nin – Núi Các Mác', details: 'Thăm nơi Bác Hồ sống và làm việc năm 1941, chiều về lại Hà Nội.' },
+          { day: 'Ngày 4: Hà Nội – Bay Về TP.HCM', details: 'Tự do mua sắm đặc sản Hà Nội và bay về TP.HCM.' }
+        ]
+      },
+
+      // === QUỐC TẾ (8 TOURS) ===
+      {
+        id: 'nhat-ban-6n5d',
+        tourCode: 'NNSGN801',
+        title: 'Nhật Bản: Tokyo – Mt Fuji – Kyoto – Osaka (Cung Đường Vàng) 6N5Đ',
+        region: 'Quốc Tế',
+        segment: 'thượng lưu',
+        priceAdult: 29990000,
+        duration: '6 Ngày 5 Đêm',
+        transport: 'Hàng không 5 Sao + Xe VIP',
+        attractions: 'Núi Phú Sĩ – Làng cổ Oshino Hakkai – Chùa Vàng Kinkakuji – Lâu đài Osaka – Asakusa',
+        cuisine: 'Bò Kobe nướng Teppanyaki, Sushi truyền thống, Lẩu Shabu-Shabu',
+        idealTime: 'Mùa lá đỏ (Tháng 10–11) & Mùa hoa anh đào (Tháng 3–4)',
+        gifts: 'Tặng trải nghiệm tắm khoáng nóng Onsen & Tàu siêu tốc Shinkansen',
+        image: 'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Khám phá xứ sở hoa anh đào, ngắm núi Phú Sĩ hùng vĩ, trải nghiệm tàu siêu tốc Shinkansen và văn hóa cố đô Kyoto.',
+        departures: ['T6, 20/11/2026', 'T7, 05/12/2026', 'T4, 23/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1-2: TP.HCM – Tokyo – Chùa Asakusa – Tháp Tokyo Skytree', details: 'Bay thẳng đến Tokyo, tham quan đền cổ Asakusa Kannon và khu phố điện tử Akihabara.' },
+          { day: 'Ngày 3-4: Núi Phú Sĩ – Làng Cổ Oshino Hakkai – Tàu Shinkansen', details: 'Chinh phục trạm 5 Núi Phú Sĩ, tắm khoáng nóng Onsen chuẩn Nhật và trải nghiệm tàu siêu tốc.' },
+          { day: 'Ngày 5-6: Cố Đô Kyoto – Chùa Vàng – Lâu Đài Osaka – TP.HCM', details: 'Thăm Chùa Vàng Kinkakuji, rừng tre Arashiyama, mua sắm Shinsaibashi và bay về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'han-quoc-5n4d',
+        tourCode: 'NNSGN802',
+        title: 'Hàn Quốc: Seoul – Đảo Nami – Công Viên Everland – Cung Điện Gyeongbok 5N4Đ',
+        region: 'Quốc Tế',
+        segment: 'thượng lưu',
+        priceAdult: 16990000,
+        duration: '5 Ngày 4 Đêm',
+        transport: 'Hàng không quốc tế',
+        attractions: 'Cung điện Gyeongbokgung – Đảo Nami – Công viên Everland – Tháp N Seoul – Làng Bukchon',
+        cuisine: 'Gà hầm sâm, Thịt nướng BBQ Hàn Quốc, Cá nướng, Gà xào bắp cải',
+        idealTime: 'Tháng 9 – Tháng 11 & Tháng 3 – Tháng 5',
+        gifts: 'Tặng vé mặc Hanbok chụp ảnh hoàng cung & Trải nghiệm làm Kim Chi',
+        image: 'https://images.unsplash.com/photo-1538485399081-7191377e8241?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Khám phá thủ đô Seoul hiện đại, đảo Nami lãng mạn và công viên giải trí Everland lớn nhất Hàn Quốc.',
+        departures: ['CN, 22/11/2026', 'T5, 10/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1-2: TP.HCM – Seoul – Đảo Nami – Tháp N Seoul', details: 'Dạo bước hàng cây ngân hạnh trên đảo Nami và ngắm toàn cảnh Seoul từ tháp Namsan.' },
+          { day: 'Ngày 3-4: Công Viên Everland – Cung Điện Gyeongbokgung – Myeongdong', details: 'Vui chơi thỏa thích tại Everland, mặc Hanbok truyền thống và mua sắm mỹ phẩm.' },
+          { day: 'Ngày 5: Làng Cổ Bukchon – Bay Về TP.HCM', details: 'Check-in làng cổ Bukchon Hanok và khởi hành ra sân bay Incheon về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'thai-lan-5n4d',
+        tourCode: 'NNSGN803',
+        title: 'Thái Lan: Bangkok – Pattaya – Đảo San Hô Coral – Chùa Phật Vàng 5N4Đ',
+        region: 'Quốc Tế',
+        segment: 'cao cấp',
+        priceAdult: 7490000,
+        duration: '5 Ngày 4 Đêm',
+        transport: 'Máy bay khứ hồi + Xe du lịch VIP',
+        attractions: 'Đảo San Hô Coral – Trân Bảo Phật Sơn – Chùa Wat Arun – Dạo thuyền sông Chao Phraya – IconSiam',
+        cuisine: 'Buffet tối trên du thuyền 5 sao, Lẩu Suki Thái, Pad Thai, Xôi xoài',
+        idealTime: 'Tháng 11 đến Tháng 4',
+        gifts: 'Tặng vé xem Alcazar Show & Buffet tối du thuyền sông Chao Phraya',
+        image: 'https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Trải nghiệm xứ sở Chùa Vàng sôi động với thiên đường biển Pattaya, thưởng thức show nghệ thuật và mua sắm tại IconSiam.',
+        departures: ['T4, 25/11/2026', 'T4, 02/12/2026', 'T4, 16/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1-2: TP.HCM – Bangkok – Pattaya – Đảo Coral', details: 'Bay đến Bangkok, di chuyển về Pattaya tắm biển đảo San Hô và xem Alcazar Show.' },
+          { day: 'Ngày 3-4: Trân Bảo Phật Sơn – Bangkok – Du Thuyền Chao Phraya', details: 'Viếng Chùa Thuyền Wat Yannawa, dùng tiệc buffet trên du thuyền sông Chao Phraya.' },
+          { day: 'Ngày 5: Chùa Phật Vàng – Mua Sắm Big C – TP.HCM', details: 'Chiêm bái Phật Vàng 5,5 tấn và bay về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'singapore-malaysia-5n4d',
+        tourCode: 'NNSGN804',
+        title: 'Liên Tuyến Singapore – Malaysia: Gardens by the Bay – Cao Nguyên Genting 5N4Đ',
+        region: 'Quốc Tế',
+        segment: 'cao cấp',
+        priceAdult: 11490000,
+        duration: '5 Ngày 4 Đêm',
+        transport: 'Máy bay khứ hồi + Xe du lịch',
+        attractions: 'Jewel Changi – Công viên Sư Tử Biển – Gardens by the Bay – Phố cổ Malacca – Tháp Đôi Petronas',
+        cuisine: 'Cua sốt ớt Singapore, Cơm gà Hải Nam, Bak Kut Teh',
+        idealTime: 'Quanh năm',
+        gifts: 'Tặng vé cáp treo Cao nguyên Genting & Nhạc nước Spectra Show',
+        image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Khám phá hai quốc gia hiện đại bậc nhất Đông Nam Á chỉ trong một hành trình từ Đảo quốc Sư Tử đến thủ đô Kuala Lumpur.',
+        departures: ['T5, 26/11/2026', 'T5, 10/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1-2: TP.HCM – Singapore – Gardens by the Bay – Sentosa', details: 'Check-in thác nước Jewel Changi, Công viên Merlion và đảo nghỉ dưỡng Sentosa.' },
+          { day: 'Ngày 3-4: Phố Cổ Malacca – Cao Nguyên Genting – Kuala Lumpur', details: 'Thăm quảng trường Hà Lan Malacca, đi cáp treo lên Genting và chụp ảnh Tháp Đôi.' },
+          { day: 'Ngày 5: Động Batu – Thành Phố Mới Putrajaya – TP.HCM', details: 'Tham quan Động Batu sắc màu và bay từ Kuala Lumpur về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'dai-loan-5n4d',
+        tourCode: 'NNSGN805',
+        title: 'Đài Loan: Đài Bắc – Đài Trung – Hồ Nhật Nguyệt – Phố Cổ Thập Phần 5N4Đ',
+        region: 'Quốc Tế',
+        segment: 'cao cấp',
+        priceAdult: 12990000,
+        duration: '5 Ngày 4 Đêm',
+        transport: 'Máy bay khứ hồi + Xe du lịch',
+        attractions: 'Hồ Nhật Nguyệt – Phố cổ Thập Phần – Tháp Taipei 101 – Chợ đêm Sĩ Lâm – Phật Quang Sơn',
+        cuisine: 'Trà sữa trân châu chính gốc, Mì bò Đài Loan, Tiểu long bao',
+        idealTime: 'Tháng 10 đến Tháng 4',
+        gifts: 'Tặng trải nghiệm thả đèn trời ước nguyện tại Phố cổ Thập Phần',
+        image: 'https://images.unsplash.com/photo-1470004914212-05527e49370b?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Du ngoạn du thuyền Hồ Nhật Nguyệt thơ mộng, thả đèn trời cầu bình an tại Thập Phần và khám phá thiên đường ẩm thực chợ đêm.',
+        departures: ['T4, 25/11/2026', 'T4, 09/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1-2: TP.HCM – Cao Hùng – Phật Quang Sơn – Đài Trung', details: 'Chiêm bái kinh đô Phật giáo Phật Quang Sơn và dạo chợ đêm Phùng Giáp.' },
+          { day: 'Ngày 3-4: Du Thuyền Hồ Nhật Nguyệt – Phố Cổ Thập Phần – Đài Bắc', details: 'Ngồi thuyền ngắm Hồ Nhật Nguyệt, thả đèn trời Thập Phần và check-in tháp Taipei 101.' },
+          { day: 'Ngày 5: Đài Tưởng Niệm Tưởng Giới Thạch – Bay Về TP.HCM', details: 'Mua bánh dứa Đài Loan và bay về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'truong-gia-gioi-phuong-hoang-co-tran-6n5d',
+        tourCode: 'NNSGN806',
+        title: 'Trung Quốc: Trương Gia Giới – Thiên Môn Sơn – Phượng Hoàng Cổ Trấn 6N5Đ',
+        region: 'Quốc Tế',
+        segment: 'cao cấp',
+        priceAdult: 14590000,
+        duration: '6 Ngày 5 Đêm',
+        transport: 'Máy bay + Xe du lịch cao cấp',
+        attractions: 'Phượng Hoàng Cổ Trấn – Núi Thiên Môn Sơn – Cổng Trời – Cầu Kính Đại Hiệp Cốc – Hồ Bảo Phong',
+        cuisine: 'Lẩu cá cay Hồ Nam, Thịt xông khói Tương Tây, Đậu hũ thối',
+        idealTime: 'Tháng 9 – Tháng 11 & Tháng 3 – Tháng 5',
+        gifts: 'Bao gồm vé cáp treo Thiên Môn Sơn & Đi thuyền sông Đà Giang',
+        image: 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Lạc bước vào chốn bồng lai tiên cảnh Trương Gia Giới và chiêm ngưỡng vẻ đẹp cổ kính nghìn năm bên dòng Đà Giang của Phượng Hoàng Cổ Trấn.',
+        departures: ['T3, 01/12/2026', 'T3, 15/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1-2: TP.HCM – Trương Gia Giới – Phượng Hoàng Cổ Trấn', details: 'Ngắm cảnh đêm Phượng Hoàng Cổ Trấn lung linh ánh đèn bên dòng sông Đà Giang.' },
+          { day: 'Ngày 3-4: Thiên Môn Sơn – Sạn Đạo Kính – Vũ Lăng Nguyên', details: 'Chinh phục 99 khúc cua lên Cổng Trời Thiên Môn Sơn và chiêm ngưỡng cột đá Avatar.' },
+          { day: 'Ngày 5-6: Hồ Bảo Phong – Bay Về TP.HCM', details: 'Du thuyền trên Hồ Bảo Phong giữa núi non trùng điệp và bay về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'uc-sydney-melbourne-7n6d',
+        tourCode: 'NNSGN807',
+        title: 'Nước Úc Mùa Hè: Sydney – Nhà Hát Con Sò – Blue Mountains – Melbourne 7N6Đ',
+        region: 'Quốc Tế',
+        segment: 'thượng lưu',
+        priceAdult: 28900000,
+        duration: '7 Ngày 6 Đêm',
+        transport: 'Hàng không quốc tế + Bay nội địa Úc',
+        attractions: 'Nhà hát Sydney Opera House – Cầu Cảng Sydney – Blue Mountains – Đảo Phillip – Đường Great Ocean Road',
+        cuisine: 'Bít tết bò Úc thượng hạng, Hải sản chợ cá Sydney, Rượu vang thung lũng Yarra',
+        idealTime: 'Quanh năm (Tháng 11 – Tháng 2 mùa hè nắng đẹp ở Úc)',
+        gifts: 'Tặng vé tàu hơi nước cổ Puffing Billy & Ngắm chim cánh cụt đảo Phillip',
+        image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Khám phá hai thành phố đáng sống nhất nước Úc: Sydney rực rỡ bên vịnh cảng và Melbourne cổ kính đậm chất nghệ thuật.',
+        departures: ['T6, 04/12/2026', 'T6, 18/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1-3: TP.HCM – Sydney – Opera House – Blue Mountains', details: 'Check-in Nhà hát Con Sò, Cầu Cảng Sydney và chiêm ngưỡng Núi Ba Chị Em Blue Mountains.' },
+          { day: 'Ngày 4-6: Melbourne – Tàu Puffing Billy – Đảo Phillip', details: 'Bay đến Melbourne, trải nghiệm tàu hơi nước xuyên rừng Dandenong và ngắm chim cánh cụt.' },
+          { day: 'Ngày 7: Chợ Queen Victoria – Bay Về TP.HCM', details: 'Mua sắm đặc sản Úc tại chợ Queen Victoria và bay về TP.HCM.' }
+        ]
+      },
+      {
+        id: 'chau-au-phap-thuy-si-y-9n8d',
+        tourCode: 'NNSGN808',
+        title: 'Châu Âu Đẳng Cấp: Pháp – Thụy Sĩ – Ý (Paris – Đỉnh Titlis – Venice – Rome) 9N8Đ',
+        region: 'Quốc Tế',
+        segment: 'thượng lưu',
+        priceAdult: 29950000,
+        duration: '9 Ngày 8 Đêm',
+        transport: 'Hàng không 5 Sao + Xe du lịch Châu Âu',
+        attractions: 'Tháp Eiffel – Bảo tàng Louvre – Đỉnh núi tuyết Titlis Thụy Sĩ – Đảo Venice – Đấu trường Colosseum',
+        cuisine: 'Ốc sên nướng Pháp, Phô mai Fondue Thụy Sĩ, Pizza & Mì Ý truyền thống',
+        idealTime: 'Quanh năm',
+        gifts: 'Bao gồm vé du thuyền sông Seine Paris & Cáp treo xoay 360° đỉnh Titlis',
+        image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80',
+        featured: false,
+        desc: 'Hành trình mơ ước qua 3 kinh đô văn hóa – nghệ thuật – thời trang bậc nhất lục địa già: Pháp, Thụy Sĩ và Ý.',
+        departures: ['T7, 05/12/2026', 'T7, 19/12/2026'],
+        itinerary: [
+          { day: 'Ngày 1-3: TP.HCM – Paris – Tháp Eiffel – Du Thuyền Sông Seine', details: 'Khám phá kinh đô ánh sáng Paris, Khải Hoàn Môn, đại lộ Champs-Élysées.' },
+          { day: 'Ngày 4-6: Lucerne – Chinh Phục Đỉnh Tuyết Titlis – Milan', details: 'Chiêm ngưỡng hồ Lucerne thơ mộng và đi cáp treo lên đỉnh núi tuyết vĩnh cửu Titlis.' },
+          { day: 'Ngày 7-9: Venice – Tháp Nghiêng Pisa – Rome – TP.HCM', details: 'Đi thuyền trên kênh đào Venice, thăm Đấu trường La Mã Colosseum và bay về TP.HCM.' }
+        ]
+      }
+    ];
+
+    window.resetFilters = function() {
+      const range = document.getElementById('priceRange');
+      if(range) range.value = 30000000;
+      updatePriceLabel(30000000);
+      document.querySelectorAll('input[name="segmentFilter"]').forEach(el => el.checked = false);
+      document.querySelectorAll('input[name="destFilter"]').forEach(el => el.checked = false);
+      const searchInput = document.getElementById('searchInput');
+      if(searchInput) searchInput.value = '';
+      const searchRegion = document.getElementById('searchRegion');
+      if(searchRegion) searchRegion.value = '';
+      renderTours(TOURS_DATA);
+    };
+
+    window.updatePriceLabel = function(val) {
+      const label = document.getElementById('priceLabel');
+      if(label) {
+        if(val >= 30000000) label.innerText = 'Dưới 30 Tr';
+        else label.innerText = 'Dưới ' + (val / 1000000).toFixed(0) + ' Tr';
+      }
+      applyFilters();
+    };
+
+    window.applyFilters = function() {
+      const maxPrice = Number(document.getElementById('priceRange')?.value) || 30000000;
+      const selectedSegments = Array.from(document.querySelectorAll('input[name="segmentFilter"]:checked')).map(el => el.value);
+      const selectedDests = Array.from(document.querySelectorAll('input[name="destFilter"]:checked')).map(el => el.value);
+      const searchTxt = document.getElementById('searchInput')?.value.toLowerCase() || '';
+      const searchReg = document.getElementById('searchRegion')?.value || '';
+      const sortBy = document.getElementById('sortBy')?.value || 'featured';
+
+      let filtered = TOURS_DATA.filter(tour => {
+        if(tour.priceAdult > maxPrice && maxPrice < 30000000) return false;
+        if(selectedSegments.length > 0 && !selectedSegments.includes(tour.segment)) return false;
+        if(selectedDests.length > 0 && !selectedDests.includes(tour.region)) return false;
+        if(searchReg && tour.region !== searchReg) return false;
+        if(searchTxt && !tour.title.toLowerCase().includes(searchTxt) && !tour.desc.toLowerCase().includes(searchTxt) && !tour.region.toLowerCase().includes(searchTxt)) return false;
+        return true;
+      });
+
+      if(sortBy === 'priceAsc') filtered.sort((a,b) => a.priceAdult - b.priceAdult);
+      else if(sortBy === 'priceDesc') filtered.sort((a,b) => b.priceAdult - a.priceAdult);
+
+      renderTours(filtered);
+    };
+
+    window.handleMainSearch = function() {
+      applyFilters();
+      document.getElementById('toursSection').scrollIntoView({ behavior: 'smooth' });
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      loadUserData();
+      changeLanguage(currentLanguage);
+      renderTours(TOURS_DATA);
+      updateBookingBadge();
+    });
+
+    // MULTI-STEP IMAGE FALLBACK HANDLER (REAL LANDMARK PHOTOS ONLY)
+    window.handleTourImgError = function(imgEl, fallbackDataUri) {
+      const step = parseInt(imgEl.getAttribute('data-step') || '0', 10);
+      if(step === 0 && fallbackDataUri && imgEl.src !== fallbackDataUri) {
+        imgEl.setAttribute('data-step', '1');
+        imgEl.src = fallbackDataUri;
+      } else if(step < 2 && imgEl.src !== DONG_NAI_CHUA_CHAN_BACKUP_IMG) {
+        imgEl.setAttribute('data-step', '2');
+        imgEl.src = DONG_NAI_CHUA_CHAN_BACKUP_IMG;
+      } else {
+        imgEl.onerror = null;
+        imgEl.src = 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85';
+      }
+    };
+
+    function renderTours(tours) {
+      const grid = document.getElementById('toursGrid');
+      document.getElementById('tourCount').innerText = tours.length;
+      if(tours.length === 0) {
+        grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500">Không tìm thấy tour phù hợp với tiêu chí của bạn.</div>`;
+        return;
+      }
+
+      grid.innerHTML = tours.map(tour => `
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition border border-gray-100 flex flex-col">
+          <div class="relative h-48 overflow-hidden bg-gray-100">
+            <img src="${tour.image}" alt="${tour.title}" data-step="0" onerror="handleTourImgError(this, '${tour.fallbackImage || ''}')" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            ${tour.featured ? '<span class="absolute top-3 left-3 bg-[#C8A96A] text-[#0F3D3E] text-[10px] font-bold px-3 py-1 rounded-full uppercase shadow"><i class="fa-solid fa-star mr-1"></i> Tour Nổi Bật</span>' : ''}
+            ${tour.tourCode ? `<span class="absolute top-3 right-3 bg-[#0F3D3E]/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow">Mã tour: ${tour.tourCode}</span>` : ''}
+            <span class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md text-white text-xs px-2.5 py-1 rounded-lg"><i class="fa-regular fa-clock mr-1"></i> ${tour.duration}</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-bold text-[#C8A96A] uppercase mb-1">${tour.region} &bull; ${tour.departureSchedule || tour.transport}</div>
+              <h3 class="font-serif font-bold text-base text-[#0F3D3E] mb-2 line-clamp-2">${tour.title}</h3>
+              <p class="text-xs text-gray-500 mb-3 line-clamp-2">${tour.desc}</p>
+              ${tour.id === 'dong-nai-2n1d' ? '<div class="bg-emerald-50 text-emerald-800 text-[11px] font-semibold px-2.5 py-1.5 rounded-lg mb-3 border border-emerald-200"><i class="fa-solid fa-tags mr-1 text-red-600"></i> Nhận từ 1–25 khách ghép đoàn &bull; Giảm 7% từ 10 khách &rarr; <strong>1.614.000đ</strong></div>' : ''}
+            </div>
+            <div>
+              <div class="flex items-baseline justify-between mb-3 border-t border-gray-100 pt-3">
+                <span class="text-xs text-gray-400">Giá trọn gói:</span>
+                <span class="text-lg font-bold text-red-600">${tour.priceAdult.toLocaleString()} VNĐ</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <button onclick="openTourDetail('${tour.id}')" class="bg-[#FAF8F5] hover:bg-gray-100 text-[#0F3D3E] font-bold py-2 rounded-xl text-xs transition border border-gray-200">Chi Tiết & Chính Sách</button>
+                <button onclick="checkAndOpenBooking('${tour.id}')" class="bg-[#0F3D3E] hover:bg-[#144c4d] text-white font-bold py-2 rounded-xl text-xs transition shadow">Đặt Tour</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // AUTH MODAL & LOGIC CONTROLS
+    function openAuthModal(mode = 'login') {
+      switchAuthTab(mode);
+      document.getElementById('authModal').classList.remove('hidden');
+    }
+    function closeAuthModal() {
+      document.getElementById('authModal').classList.add('hidden');
+    }
+
+    function switchAuthTab(mode) {
+      const loginBtn = document.getElementById('tabLoginBtn');
+      const regBtn = document.getElementById('tabRegisterBtn');
+      const staffBtn = document.getElementById('tabStaffBtn');
+      const loginForm = document.getElementById('loginFormContainer');
+      const regForm = document.getElementById('registerFormContainer');
+      const staffForm = document.getElementById('staffFormContainer');
+      const socialBlock = document.getElementById('customerSocialAuth');
+
+      const activeClass = "flex-1 pb-2 font-serif font-bold text-sm text-[#0F3D3E] border-b-2 border-[#0F3D3E]";
+      const inactiveClass = "flex-1 pb-2 font-serif font-bold text-sm text-gray-400 border-b-2 border-transparent";
+
+      loginBtn.className = mode === 'login' ? activeClass : inactiveClass;
+      regBtn.className = mode === 'register' ? activeClass : inactiveClass;
+      staffBtn.className = mode === 'staff' ? activeClass : inactiveClass;
+
+      loginForm.classList.add('hidden');
+      regForm.classList.add('hidden');
+      staffForm.classList.add('hidden');
+
+      if(mode === 'login') {
+        loginForm.classList.remove('hidden');
+        socialBlock.classList.remove('hidden');
+      } else if(mode === 'register') {
+        regForm.classList.remove('hidden');
+        socialBlock.classList.remove('hidden');
+      } else {
+        staffForm.classList.remove('hidden');
+        socialBlock.classList.add('hidden');
+      }
+    }
+
+    // STAFF / MANAGER INTERNAL ACCOUNTS
+    const INTERNAL_STAFF_ACCOUNTS = [
+      { name: 'Quản Lý Điều Hành - Ngọc Bích', email: 'quanly@dulichngocbich.vn', phone: '0397238981', password: 'admin123', role: 'admin' },
+      { name: 'Nhân Viên Tư Vấn - Minh Anh', email: 'nhanvien@dulichngocbich.vn', phone: '0397238981', password: 'staff123', role: 'staff' }
+    ];
+
+    window.quickFillStaff = function(roleType) {
+      if(roleType === 'admin') {
+        document.getElementById('staffEmail').value = 'quanly@dulichngocbich.vn';
+        document.getElementById('staffPassword').value = 'admin123';
+      } else {
+        document.getElementById('staffEmail').value = 'nhanvien@dulichngocbich.vn';
+        document.getElementById('staffPassword').value = 'staff123';
+      }
+    };
+
+    window.handleStaffLoginSubmit = function(e) {
+      e.preventDefault();
+      const email = document.getElementById('staffEmail').value.trim().toLowerCase();
+      const password = document.getElementById('staffPassword').value;
+
+      const staff = INTERNAL_STAFF_ACCOUNTS.find(s => s.email === email && s.password === password);
+      if(!staff) {
+        showToastMessage("Sai thông tin đăng nhập nội bộ! Vui lòng kiểm tra lại email hoặc mật khẩu Quản lý / Nhân viên.");
+        return;
+      }
+
+      currentUser = { name: staff.name, email: staff.email, phone: staff.phone, role: staff.role };
+      localStorage.setItem('nb_current_user', JSON.stringify(currentUser));
+      updateUserDataUI();
+      updateBookingBadge();
+      closeAuthModal();
+      showToastMessage(`Đăng nhập quyền ${staff.role === 'admin' ? 'QUẢN LÝ' : 'NHÂN VIÊN'} thành công!\nBạn đã được cấp quyền xem toàn bộ danh sách Booking & Khách hàng.`);
+    };
+
+    // GET REGISTERED USERS DATABASE FROM LOCALSTORAGE
+    function getRegisteredUsers() {
+      let users = localStorage.getItem('nb_registered_users');
+      if(!users) {
+        users = [
+          { name: 'Nguyễn Văn An', email: 'an.nguyen@gmail.com', phone: '0901234567', password: '123456', role: 'customer' }
+        ];
+        localStorage.setItem('nb_registered_users', JSON.stringify(users));
+        return users;
+      }
+      return JSON.parse(users);
+    }
+
+    function handleRegisterSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('regName').value.trim();
+      const phone = document.getElementById('regPhone').value.trim();
+      const email = document.getElementById('regEmail').value.trim().toLowerCase();
+      const password = document.getElementById('regPassword').value;
+
+      let users = getRegisteredUsers();
+      const existing = users.find(u => u.email === email);
+      if(existing) {
+        showToastMessage("Email này đã được đăng ký tài khoản trước đó! Vui lòng chuyển sang tab Khách Hàng để đăng nhập.");
+        switchAuthTab('login');
+        document.getElementById('loginEmail').value = email;
+        return;
+      }
+
+      users.push({ name, email, phone, password, role: 'customer' });
+      localStorage.setItem('nb_registered_users', JSON.stringify(users));
+
+      currentUser = { name, email, phone, role: 'customer' };
+      localStorage.setItem('nb_current_user', JSON.stringify(currentUser));
+      updateUserDataUI();
+      updateBookingBadge();
+      closeAuthModal();
+      showToastMessage('ĐĂNG KÝ THÀNH CÔNG!\nTài khoản của bạn đã được tạo và tự động đăng nhập.');
+    }
+
+    function handleLoginSubmit(e) {
+      e.preventDefault();
+      const emailOrPhone = document.getElementById('loginEmail').value.trim().toLowerCase();
+      const password = document.getElementById('loginPassword').value;
+
+      const staff = INTERNAL_STAFF_ACCOUNTS.find(s => s.email === emailOrPhone && s.password === password);
+      if(staff) {
+        currentUser = { name: staff.name, email: staff.email, phone: staff.phone, role: staff.role };
+        localStorage.setItem('nb_current_user', JSON.stringify(currentUser));
+        updateUserDataUI();
+        updateBookingBadge();
+        closeAuthModal();
+        showToastMessage(`Đăng nhập quyền ${staff.role === 'admin' ? 'QUẢN LÝ' : 'NHÂN VIÊN'} thành công!`);
+        return;
+      }
+
+      let users = getRegisteredUsers();
+      const user = users.find(u => u.email === emailOrPhone || u.phone === emailOrPhone);
+
+      if(!user) {
+        showToastMessage("Tài khoản chưa tồn tại trong hệ thống! Vui lòng bấm sang tab 'Đăng Ký Mới' để tạo tài khoản.");
+        switchAuthTab('register');
+        document.getElementById('regEmail').value = emailOrPhone.includes('@') ? emailOrPhone : '';
+        document.getElementById('regPhone').value = !emailOrPhone.includes('@') ? emailOrPhone : '';
+        return;
+      }
+
+      if(user.password !== password) {
+        showToastMessage("Mật khẩu không chính xác! Vui lòng kiểm tra lại.");
+        return;
+      }
+
+      currentUser = { name: user.name, email: user.email, phone: user.phone, role: user.role || 'customer' };
+      localStorage.setItem('nb_current_user', JSON.stringify(currentUser));
+      updateUserDataUI();
+      updateBookingBadge();
+      closeAuthModal();
+      showToastMessage('Đăng nhập thành công! Chào mừng ' + user.name + ' trở lại.');
+    }
+
+    // REAL GOOGLE OAUTH LOGIN INTEGRATION
+    window.triggerRealGoogleLogin = function() {
+      toggleCustomGoogleForm(false);
+      const modal = document.getElementById('googlePickerModal');
+      if(modal) modal.classList.remove('hidden');
+    };
+
+    window.closeGooglePicker = function() {
+      document.getElementById('googlePickerModal').classList.add('hidden');
+      toggleCustomGoogleForm(false);
+    };
+
+    window.toggleCustomGoogleForm = function(showCustom) {
+      const listEl = document.getElementById('googleSavedAccountsList');
+      const formEl = document.getElementById('customGoogleForm');
+      const btnShow = document.getElementById('btnShowCustomGoogle');
+      if(!listEl || !formEl || !btnShow) return;
+
+      if(showCustom) {
+        listEl.classList.add('hidden');
+        btnShow.classList.add('hidden');
+        formEl.classList.remove('hidden');
+        document.getElementById('customGoogleEmail').focus();
+      } else {
+        listEl.classList.remove('hidden');
+        btnShow.classList.remove('hidden');
+        formEl.classList.add('hidden');
+      }
+    };
+
+    window.submitCustomGoogleAccount = function(e) {
+      e.preventDefault();
+      const email = document.getElementById('customGoogleEmail').value.trim().toLowerCase();
+      const name = document.getElementById('customGoogleName').value.trim();
+      const phone = document.getElementById('customGooglePhone').value.trim();
+
+      if(!email || !name) return;
+      selectGoogleAccount(email, name, phone || '0909123456');
+    };
+
+    window.selectGoogleAccount = function(email, name, phone) {
+      closeGooglePicker();
+      let users = getRegisteredUsers();
+      let user = users.find(u => u.email === email);
+      if(!user) {
+        user = { name: name, email: email, phone: phone, password: 'google_oauth_active', role: 'customer' };
+        users.push(user);
+        localStorage.setItem('nb_registered_users', JSON.stringify(users));
+      }
+      currentUser = { name: user.name, email: user.email, phone: user.phone, role: user.role || 'customer' };
+      localStorage.setItem('nb_current_user', JSON.stringify(currentUser));
+      updateUserDataUI();
+      updateBookingBadge();
+      closeAuthModal();
+      showToastMessage('Đăng nhập thành công bằng tài khoản Google!\nXin chào ' + user.name + ' (' + user.email + ')');
+    };
+
+    function loadUserData() {
+      const savedUser = localStorage.getItem('nb_current_user');
+      if(savedUser) {
+        try {
+          currentUser = JSON.parse(savedUser);
+          updateUserDataUI();
+        } catch(e) {
+          currentUser = null;
+        }
+      }
+    }
+
+    function updateUserDataUI() {
+      const authArea = document.getElementById('userAuthArea');
+      if(currentUser) {
+        const isInternal = isStaffOrAdmin();
+        const roleBadgeText = currentUser.role === 'admin'
+          ? '<span class="text-[9px] bg-amber-100 text-amber-900 font-bold px-1.5 py-0.5 rounded">Quản Lý</span>'
+          : (currentUser.role === 'staff'
+            ? '<span class="text-[9px] bg-emerald-100 text-emerald-900 font-bold px-1.5 py-0.5 rounded">Nhân Viên</span>'
+            : '<span class="text-[9px] text-gray-500">Thành Viên Hội Viên</span>');
+
+        authArea.innerHTML = `
+          <div class="flex items-center gap-2 ${isInternal ? 'bg-amber-50 border-amber-300' : 'bg-[#FAF8F5] border-gray-200'} border px-3 py-1.5 rounded-full shadow-sm">
+            <div class="w-7 h-7 rounded-full bg-[#0F3D3E] text-[#C8A96A] font-bold flex items-center justify-center text-xs">
+              ${isInternal ? '<i class="fa-solid fa-shield-halved"></i>' : currentUser.name.charAt(0).toUpperCase()}
+            </div>
+            <div class="hidden md:block text-left">
+              <p class="text-xs font-bold text-[#0F3D3E] leading-tight">${escapeHtml(currentUser.name)}</p>
+              <div class="leading-tight">${roleBadgeText}</div>
+            </div>
+            <button onclick="handleLogout()" class="text-gray-400 hover:text-red-600 ml-2 text-xs" title="Đăng xuất"><i class="fa-solid fa-right-from-bracket"></i></button>
+          </div>
+        `;
+      } else {
+        authArea.innerHTML = `
+          <button onclick="openAuthModal('login')" class="bg-[#0F3D3E] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-[#144c4d] transition shadow flex items-center gap-2">
+            <i class="fa-solid fa-user"></i>
+            <span data-i18n="loginBtn">Đăng Nhập</span>
+          </button>
+        `;
+      }
+    }
+
+    window.handleLogout = function() {
+      currentUser = null;
+      localStorage.removeItem('nb_current_user');
+      updateUserDataUI();
+      updateBookingBadge();
+      showToastMessage("Đã đăng xuất tài khoản thành công!");
+    };
+
+    window.openTourDetail = function(tourId) {
+      const tour = TOURS_DATA.find(t => t.id === tourId);
+      if(!tour) return;
+      const p = DEFAULT_TOUR_POLICIES;
+      const content = document.getElementById('tourDetailContent');
+      content.innerHTML = `
+        <!-- STICKY PROGRAM TABS BAR -->
+        <div class="sticky top-0 bg-white/95 backdrop-blur-md z-20 border-b border-gray-200 pb-2.5 mb-4 flex items-center justify-between gap-2 overflow-x-auto text-xs font-bold">
+          <div class="flex items-center gap-5 whitespace-nowrap">
+            <a href="#sec-overview" class="text-[#0F3D3E] border-b-2 border-[#0F3D3E] pb-1">Thông tin</a>
+            <a href="#sec-departures" class="text-gray-500 hover:text-[#0F3D3E] pb-1">Lịch khởi hành</a>
+            <a href="#sec-highlights" class="text-gray-500 hover:text-[#0F3D3E] pb-1">Điểm nổi bật</a>
+            <a href="#sec-itinerary" class="text-gray-500 hover:text-[#0F3D3E] pb-1">Lịch trình</a>
+            <a href="#sec-notes" class="text-gray-500 hover:text-[#0F3D3E] pb-1">Lưu ý</a>
+          </div>
+          <span class="text-[11px] text-gray-500 whitespace-nowrap">Mã chương trình: <strong class="text-[#0F3D3E]">${tour.tourCode || 'NB-TOUR'}</strong></span>
+        </div>
+
+        <!-- HERO BANNER -->
+        <div id="sec-overview" class="relative h-60 rounded-2xl overflow-hidden mb-5 bg-gray-100">
+          <img src="${tour.image}" alt="${tour.title}" data-step="0" onerror="handleTourImgError(this, '${tour.fallbackImage || ''}')" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex items-end p-5">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="bg-[#C8A96A] text-[#0F3D3E] text-[10px] font-bold px-3 py-1 rounded-full uppercase">${tour.featured ? 'Tour Nổi Bật' : tour.region}</span>
+                <span class="bg-white/20 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded-full"><i class="fa-regular fa-clock mr-1"></i> ${tour.duration}</span>
+              </div>
+              <h2 class="text-lg sm:text-2xl font-serif font-bold text-white">${tour.title}</h2>
+            </div>
+          </div>
+        </div>
+
+        <!-- DEPARTURE SCHEDULE SELECTOR -->
+        <div id="sec-departures" class="bg-[#FAF8F5] border border-gray-200 rounded-2xl p-4 mb-6">
+          <h3 class="font-serif font-bold text-base text-[#0F3D3E] mb-3"><i class="fa-regular fa-calendar-days text-[#C8A96A] mr-2"></i> Lịch trình khởi hành</h3>
+          <div class="space-y-2">
+            ${tour.departures.map((dep, idx) => `
+              <div class="bg-white border border-gray-200 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2 text-xs">
+                <div class="flex items-center gap-3">
+                  <span class="bg-[#0F3D3E]/10 text-[#0F3D3E] font-bold px-3 py-1 rounded-full">${dep}</span>
+                  <span class="text-gray-500 font-mono text-[11px]"><i class="fa-solid fa-ticket text-[#C8A96A] mr-1"></i> ${tour.tourCode || 'NB01'}-0${idx+1}XE-V</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-red-600 font-bold text-sm">${tour.priceAdult.toLocaleString()}đ</span>
+                  <button onclick="closeTourDetail(); checkAndOpenBooking('${tour.id}')" class="bg-[#0F3D3E] hover:bg-[#144c4d] text-white font-bold px-4 py-1.5 rounded-lg transition">Chọn</button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- TRIP HIGHLIGHTS GRID -->
+        <div id="sec-highlights" class="mb-6">
+          <h3 class="font-serif font-bold text-base text-[#0F3D3E] mb-3">Thông tin thêm về chuyến đi</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div class="bg-[#FAF8F5] border border-gray-200/80 p-3.5 rounded-2xl">
+              <div class="flex items-center gap-2 font-bold text-[#0F3D3E] mb-1">
+                <i class="fa-solid fa-map-pin text-blue-600"></i> Điểm tham quan
+              </div>
+              <p class="text-gray-600 leading-relaxed">${tour.attractions || tour.desc}</p>
+            </div>
+            <div class="bg-[#FAF8F5] border border-gray-200/80 p-3.5 rounded-2xl">
+              <div class="flex items-center gap-2 font-bold text-[#0F3D3E] mb-1">
+                <i class="fa-solid fa-utensils text-blue-600"></i> Ẩm thực
+              </div>
+              <p class="text-gray-600 leading-relaxed">${tour.cuisine || 'Buffet sáng, Theo thực đơn đặc sản'}</p>
+            </div>
+            <div class="bg-[#FAF8F5] border border-gray-200/80 p-3.5 rounded-2xl">
+              <div class="flex items-center gap-2 font-bold text-[#0F3D3E] mb-1">
+                <i class="fa-solid fa-calendar-check text-blue-600"></i> Thời gian lý tưởng
+              </div>
+              <p class="text-gray-600 leading-relaxed">${tour.idealTime || 'Quanh năm'}</p>
+            </div>
+            <div class="bg-[#FAF8F5] border border-gray-200/80 p-3.5 rounded-2xl">
+              <div class="flex items-center gap-2 font-bold text-[#0F3D3E] mb-1">
+                <i class="fa-solid fa-bus text-blue-600"></i> Phương tiện
+              </div>
+              <p class="text-gray-600 leading-relaxed">${tour.transport}</p>
+            </div>
+            <div class="bg-[#FAF8F5] border border-gray-200/80 p-3.5 rounded-2xl sm:col-span-2">
+              <div class="flex items-center gap-2 font-bold text-[#0F3D3E] mb-1">
+                <i class="fa-solid fa-gift text-blue-600"></i> Quà tặng & Ưu đãi
+              </div>
+              <p class="text-gray-600 leading-relaxed">${tour.gifts || 'Đã ưu đãi trực tiếp vào giá tour'}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ITINERARY -->
+        <div id="sec-itinerary" class="mb-6">
+          <h3 class="font-serif font-bold text-base text-[#0F3D3E] mb-3 border-b pb-1"><i class="fa-solid fa-route text-[#C8A96A] mr-2"></i> Lịch Trình Chi Tiết</h3>
+          <div class="space-y-3">
+            ${tour.itinerary.map(it => `
+              <div class="border-l-2 border-[#C8A96A] pl-4 bg-white p-3.5 rounded-r-xl border border-gray-100 shadow-sm">
+                <h4 class="font-bold text-sm text-[#0F3D3E] mb-1">${it.day}</h4>
+                <div class="text-xs text-gray-700 space-y-1 whitespace-pre-line leading-relaxed">${it.details}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        ${tour.notes ? `
+          <div class="bg-amber-50 border border-amber-200 p-3.5 rounded-xl text-xs text-amber-950 mb-6">
+            <h4 class="font-bold text-amber-900 mb-1"><i class="fa-solid fa-triangle-exclamation text-amber-600 mr-1.5"></i> Lưu ý riêng của chương trình:</h4>
+            <p class="leading-relaxed">${tour.notes}</p>
+          </div>
+        ` : ''}
+
+        <!-- ACCORDION: NHỮNG THÔNG TIN CẦN LƯU Ý -->
+        <div id="sec-notes" class="mb-6">
+          <h3 class="font-serif font-bold text-lg text-[#0F3D3E] mb-3">Những thông tin cần lưu ý</h3>
+          <div class="bg-[#FAF8F5] border border-gray-200 rounded-2xl divide-y divide-gray-200 overflow-hidden text-xs">
+            <details class="group p-3.5 cursor-pointer" open>
+              <summary class="font-bold text-gray-800 flex justify-between items-center list-none">
+                <span>Giá tour bao gồm</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 group-open:rotate-180 transition"></i>
+              </summary>
+              <ul class="mt-2.5 pl-4 list-disc space-y-1 text-gray-600">
+                ${p.included.map(i => `<li>${i}</li>`).join('')}
+              </ul>
+            </details>
+
+            <details class="group p-3.5 cursor-pointer">
+              <summary class="font-bold text-gray-800 flex justify-between items-center list-none">
+                <span>Giá tour không bao gồm</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 group-open:rotate-180 transition"></i>
+              </summary>
+              <ul class="mt-2.5 pl-4 list-disc space-y-1 text-gray-600">
+                ${p.excluded.map(i => `<li>${i}</li>`).join('')}
+              </ul>
+            </details>
+
+            <details class="group p-3.5 cursor-pointer">
+              <summary class="font-bold text-gray-800 flex justify-between items-center list-none">
+                <span>Lưu ý giá trẻ em</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 group-open:rotate-180 transition"></i>
+              </summary>
+              <ul class="mt-2.5 pl-4 list-disc space-y-1 text-gray-600">
+                ${p.childPolicy.map(i => `<li>${i}</li>`).join('')}
+              </ul>
+            </details>
+
+            <details class="group p-3.5 cursor-pointer">
+              <summary class="font-bold text-gray-800 flex justify-between items-center list-none">
+                <span>Điều kiện thanh toán</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 group-open:rotate-180 transition"></i>
+              </summary>
+              <ul class="mt-2.5 pl-4 list-disc space-y-1 text-gray-600">
+                ${p.paymentProcess.map(i => `<li>${i}</li>`).join('')}
+              </ul>
+            </details>
+
+            <details class="group p-3.5 cursor-pointer">
+              <summary class="font-bold text-gray-800 flex justify-between items-center list-none">
+                <span>Điều kiện đăng ký</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 group-open:rotate-180 transition"></i>
+              </summary>
+              <ul class="mt-2.5 pl-4 list-disc space-y-1 text-gray-600">
+                ${p.registrationTerms.map(i => `<li>${i}</li>`).join('')}
+              </ul>
+            </details>
+
+            <details class="group p-3.5 cursor-pointer">
+              <summary class="font-bold text-gray-800 flex justify-between items-center list-none">
+                <span>Lưu ý về chuyển hoặc hủy tour</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 group-open:rotate-180 transition"></i>
+              </summary>
+              <ul class="mt-2.5 pl-4 list-disc space-y-1 text-gray-600">
+                ${p.cancellationTransferNote.map(i => `<li>${i}</li>`).join('')}
+              </ul>
+            </details>
+
+            <details class="group p-3.5 cursor-pointer">
+              <summary class="font-bold text-gray-800 flex justify-between items-center list-none">
+                <span>Các điều kiện hủy tour đối với ngày thường</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 group-open:rotate-180 transition"></i>
+              </summary>
+              <ul class="mt-2.5 pl-4 list-disc space-y-1 text-gray-600">
+                ${p.cancellationWeekday.map(i => `<li>${i}</li>`).join('')}
+              </ul>
+            </details>
+
+            <details class="group p-3.5 cursor-pointer">
+              <summary class="font-bold text-gray-800 flex justify-between items-center list-none">
+                <span>Các điều kiện hủy tour đối với ngày lễ, Tết</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 group-open:rotate-180 transition"></i>
+              </summary>
+              <ul class="mt-2.5 pl-4 list-disc space-y-1 text-gray-600">
+                ${p.cancellationHoliday.map(i => `<li>${i}</li>`).join('')}
+              </ul>
+            </details>
+
+            <details class="group p-3.5 cursor-pointer">
+              <summary class="font-bold text-gray-800 flex justify-between items-center list-none">
+                <span>Trường hợp bất khả kháng</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 group-open:rotate-180 transition"></i>
+              </summary>
+              <p class="mt-2.5 text-gray-600 leading-relaxed">${p.forceMajeure}</p>
+            </details>
+
+            <details class="group p-3.5 cursor-pointer">
+              <summary class="font-bold text-gray-800 flex justify-between items-center list-none">
+                <span>Liên hệ</span>
+                <i class="fa-solid fa-chevron-down text-gray-400 group-open:rotate-180 transition"></i>
+              </summary>
+              <p class="mt-2.5 text-gray-700 font-semibold">${p.contactInfo}</p>
+            </details>
+          </div>
+        </div>
+
+        <button onclick="closeTourDetail(); checkAndOpenBooking('${tour.id}')" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 rounded-xl text-sm transition shadow-lg">
+          Chọn Ngày & Đặt Tour Ngay (${tour.priceAdult.toLocaleString()} VNĐ/khách)
+        </button>
+      `;
+      document.getElementById('tourDetailModal').classList.remove('hidden');
+    };
+
+    window.closeTourDetail = function() {
+      document.getElementById('tourDetailModal').classList.add('hidden');
+    };
+
+    window.checkAndOpenBooking = function(tourId) {
+      if(!currentUser) {
+        showToastMessage("Vui lòng Đăng nhập hoặc Đăng ký tài khoản hội viên trước khi tiến hành đặt tour!");
+        openAuthModal('login');
+        return;
+      }
+      const tour = TOURS_DATA.find(t => t.id === tourId);
+      if(!tour) return;
+
+      const modalContent = document.getElementById('serviceModalContent');
+      const isDongNai = tour.id === 'dong-nai-2n1d';
+      const minInput = isDongNai ? 0 : 1;
+      const defaultQty = 1;
+      const maxQty = isDongNai ? 25 : 50;
+
+      modalContent.innerHTML = `
+        <h3 class="font-serif font-bold text-xl text-[#0F3D3E] mb-2"><i class="fa-solid fa-calendar-check text-[#C8A96A] mr-2"></i> Xác Nhận Đặt Tour</h3>
+        <p class="text-xs font-bold text-[#0F3D3E] mb-3">${tour.title}</p>
+        ${isDongNai ? `
+          <div class="bg-amber-50 border border-amber-200 p-3 rounded-xl text-xs text-amber-900 mb-4">
+            <p class="font-bold mb-1"><i class="fa-solid fa-circle-info mr-1"></i> Quy định Tour Nổi Bật Đồng Nai (Mã tour: 01):</p>
+            <ul class="list-disc pl-4 space-y-0.5">
+              <li>Khởi hành: <strong>Thứ 7 hàng tuần từ TPHCM</strong> (Xe THACO 29 chỗ).</li>
+              <li>Hình thức tổ chức: <strong>Nhận khách lẻ & các nhóm nhỏ (0 – 25 khách)</strong> linh hoạt ghép thành đoàn lớn <strong>20 – 25 khách</strong> khởi hành.</li>
+              <li>Giá niêm yết: <strong>1.735.000 VNĐ/khách</strong> (áp dụng cho khách lẻ & nhóm dưới 10 khách).</li>
+              <li>Ưu đãi nhóm: <strong>Giảm ngay 7%</strong> cho nhóm từ 10 khách trở lên (chỉ còn <strong>1.614.000 VNĐ/khách</strong>).</li>
+              <li>Thanh toán: Đặt cọc 50% khi đăng ký, thanh toán 50% còn lại trước 07-10 ngày.</li>
+            </ul>
+          </div>
+        ` : ''}
+        <div class="space-y-3 text-xs mb-5">
+          <div>
+            <label class="block font-bold text-gray-700 mb-1">Ngày Khởi Hành</label>
+            <select id="bookTourDate" class="w-full bg-[#FAF8F5] border border-gray-200 p-2 rounded-xl">
+              ${tour.departures.map(d => `<option value="${d}">${d}</option>`).join('')}
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-gray-700 mb-1">Số Lượng Khách Tham Gia ${isDongNai ? '(Linh hoạt từ 0 đến 25 khách)' : ''}</label>
+            <input type="number" id="bookTourQty" value="${defaultQty}" min="${minInput}" max="${maxQty}" onchange="recalcTourPrice('${tour.id}')" oninput="recalcTourPrice('${tour.id}')" class="w-full bg-[#FAF8F5] border border-gray-200 p-2 rounded-xl font-bold">
+          </div>
+          <div id="tourPriceSummary" class="bg-[#FAF8F5] p-3.5 rounded-xl border border-gray-200 space-y-1.5"></div>
+        </div>
+        <button onclick="finalizeTourBooking('${tour.id}')" class="w-full bg-[#0F3D3E] hover:bg-[#144c4d] text-white font-bold py-3 rounded-xl text-sm shadow transition">
+          Hoàn Tất Đặt Tour (Đặt Cọc 50%)
+        </button>
+      `;
+
+      document.getElementById('serviceModal').classList.remove('hidden');
+      recalcTourPrice(tour.id);
+    };
+
+    window.recalcTourPrice = function(tourId) {
+      const tour = TOURS_DATA.find(t => t.id === tourId);
+      const qtyInput = document.getElementById('bookTourQty');
+      let qty = parseInt(qtyInput.value, 10);
+      if(isNaN(qty)) qty = 0;
+
+      if(tour.id === 'dong-nai-2n1d') {
+        if(qty < 0) qty = 0;
+        if(qty > 25) qty = 25;
+        qtyInput.value = qty;
+      } else {
+        if(qty < 1) qty = 1;
+        if(qty > 50) qty = 50;
+        qtyInput.value = qty;
+      }
+
+      const isDiscounted = qty >= 10;
+      const unitPrice = (tour.id === 'dong-nai-2n1d' && isDiscounted) ? 1614000 : (isDiscounted ? Math.round(tour.priceAdult * 0.93) : tour.priceAdult);
+      const subtotal = tour.priceAdult * qty;
+      const finalTotal = unitPrice * qty;
+      const discountAmount = subtotal - finalTotal;
+      const deposit50 = Math.round(finalTotal * 0.5);
+
+      const discountRow = isDiscounted
+        ? `<div class="flex justify-between text-emerald-700 font-semibold"><span>Ưu đãi nhóm từ 10 khách (-7% &rarr; ${unitPrice.toLocaleString()}đ/khách):</span> <span>-${discountAmount.toLocaleString()} VNĐ</span></div>`
+        : `<div class="flex justify-between text-gray-500"><span>Ưu đãi nhóm (Giảm 7% khi đặt từ 10 khách):</span> <span>0 VNĐ</span></div>`;
+
+      document.getElementById('tourPriceSummary').innerHTML = `
+        <div class="flex justify-between text-gray-600"><span>Giá gốc (${qty} khách x ${tour.priceAdult.toLocaleString()}đ):</span> <span>${subtotal.toLocaleString()} VNĐ</span></div>
+        ${discountRow}
+        <div class="flex justify-between text-red-600 font-bold text-sm border-t border-gray-200 pt-1.5"><span>Tổng thanh toán trọn gói:</span> <span>${finalTotal.toLocaleString()} VNĐ</span></div>
+        <div class="flex justify-between text-[#0F3D3E] font-bold text-xs"><span>Số tiền đặt cọc 50% khi đăng ký:</span> <span>${deposit50.toLocaleString()} VNĐ</span></div>
+      `;
+    };
+
+    window.finalizeTourBooking = function(tourId) {
+      const tour = TOURS_DATA.find(t => t.id === tourId);
+      const qty = parseInt(document.getElementById('bookTourQty').value, 10) || 0;
+      if(qty < 1) {
+        showToastMessage("Vui lòng nhập số lượng tối thiểu 1 khách để tiến hành giữ chỗ ghép đoàn!");
+        document.getElementById('bookTourQty').focus();
+        return;
+      }
+      const date = document.getElementById('bookTourDate').value;
+      const unitPrice = (tour.id === 'dong-nai-2n1d' && qty >= 10) ? 1614000 : (qty >= 10 ? Math.round(tour.priceAdult * 0.93) : tour.priceAdult);
+      const finalTotal = unitPrice * qty;
+
+      userBookings.push({
+        id: 'NB-' + Math.floor(1000 + Math.random() * 9000),
+        customerName: currentUser.name,
+        phone: currentUser.phone || '0397238981',
+        email: currentUser.email,
+        type: tour.featured ? 'Tour Nổi Bật' : 'Tour Trọn Gói',
+        title: `${tour.title} (${qty} khách)`,
+        date: date,
+        total: finalTotal.toLocaleString() + ' VNĐ',
+        status: 'Đã xác nhận (Cọc 50%)'
+      });
+      updateBookingBadge();
+      closeServiceModal();
+      showToastMessage('ĐẶT TOUR THÀNH CÔNG!\nKhách hàng: ' + currentUser.name + '\nSố lượng: ' + qty + ' khách\nTổng tiền: ' + finalTotal.toLocaleString() + ' VNĐ');
+      openBookingsModal();
+    };
+
+    function updateBookingBadge() {
+      const badge = document.getElementById('bookingBadge');
+      if(!badge) return;
+      if(isStaffOrAdmin()) {
+        badge.innerText = userBookings.length;
+      } else if(currentUser && currentUser.role === 'customer') {
+        const count = userBookings.filter(b =>
+          (b.email && currentUser.email && b.email.toLowerCase() === currentUser.email.toLowerCase()) ||
+          (b.phone && currentUser.phone && b.phone === currentUser.phone)
+        ).length;
+        badge.innerText = count;
+      } else {
+        badge.innerText = 0;
+      }
+    }
+
+    // AI CHATBOT LOGIC
+    let isAiOpen = false;
+    let aiChatHistory = [];
+
+    window.toggleAiModal = function() {
+      isAiOpen = !isAiOpen;
+      const modal = document.getElementById('aiChatModal');
+      if(isAiOpen) {
+        modal.classList.remove('hidden');
+        setTimeout(() => document.getElementById('aiUserInput')?.focus(), 100);
+      } else {
+        modal.classList.add('hidden');
+      }
+    };
+
+    window.sendAiMessage = async function() {
+      const input = document.getElementById('aiUserInput');
+      const text = input.value.trim();
+      if(!text) return;
+
+      const chatMessages = document.getElementById('aiChatMessages');
+      chatMessages.innerHTML += `
+        <div class="bg-[#0F3D3E] text-white p-3 rounded-xl shadow-sm ml-auto max-w-[85%] text-right">
+          <strong class="block mb-1 text-[#C8A96A]">Bạn:</strong>
+          ${escapeHtml(text)}
+        </div>
+      `;
+      input.value = '';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      const loadingId = 'ai-loading-' + Date.now();
+      chatMessages.innerHTML += `
+        <div id="${loadingId}" class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 max-w-[85%] text-gray-500 italic">
+          <strong class="text-[#0F3D3E] not-italic block mb-1">Ngọc Bích AI:</strong>
+          <i class="fa-solid fa-spinner fa-spin mr-1 text-[#C8A96A]"></i> Đang tra cứu thông tin tư vấn cho quý khách...
+        </div>
+      `;
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      aiChatHistory.push({ role: "user", parts: [{ text: text }] });
+
+      const systemPrompt = `Bạn là Trợ Lý Du Lịch Thông Minh chính thức của Công ty TNHH Du Lịch Ngọc Bích.
+Thông tin doanh nghiệp:
+- Tên công ty: Công ty TNHH Du Lịch Ngọc Bích
+- Địa chỉ: 280 An Dương Vương, phường Chợ Quán, TPHCM
+- Hotline tư vấn & đặt tour 24/7: 0397238981
+- Email: info@dulichngocbich.vn
+
+Hệ thống hiện có ${TOURS_DATA.length} chương trình tour trong nước và quốc tế, nổi bật nhất là:
+1. TOUR NỔI BẬT: Khám Phá Đồng Nai 2N1Đ (Mã tour: NDSGN01 / Mã tour 01) - Văn Miếu Trấn Biên, Làng Bưởi Tân Triều, Hồ Núi Le, Núi Chứa Chan, Chùa Bửu Quang.
+   - Giá trọn gói: 1.735.000 VNĐ/khách.
+   - Ưu đãi nhóm: Giảm 7% cho nhóm từ 10 khách trở lên -> giá chỉ còn 1.614.000 VNĐ/khách.
+   - Khởi hành: Thứ 7 hàng tuần từ TPHCM. Phương tiện: Xe THACO 29 chỗ đời mới.
+   - Quy mô đoàn: Nhận khách lẻ & nhóm nhỏ linh hoạt (1–25 khách) để ghép thành đoàn lớn 20–25 khách khởi hành.
+2. Các tuyến Trong Nước & Quốc Tế đa dạng: Đồng Nai & Lân cận (Nam Cát Tiên, Hồ Trị An), Miền Tây (Phú Quốc, Cần Thơ - Cà Mau, Châu Đốc - Trà Sư, Côn Đảo, Bến Tre), Miền Trung - Tây Nguyên (Đà Nẵng - Hội An, Huế, Quy Nhơn - Phú Yên, Nha Trang, Đà Lạt, Buôn Ma Thuột, Lý Sơn, Mũi Né), Miền Bắc (Hạ Long, Sa Pa, Hà Giang, Ninh Bình, Mộc Châu, Cao Bằng) và Quốc Tế (Nhật Bản, Hàn Quốc, Thái Lan, Singapore - Malaysia, Đài Loan, Trương Gia Giới, Úc, Châu Âu).
+
+Yêu cầu trả lời:
+- Trả lời lịch sự, thân thiện, tận tâm như chuyên viên tư vấn du lịch cao cấp, trình bày ngắn gọn, rõ ràng và luôn đính kèm Hotline 0397238981.`;
+
+      try {
+        const replyText = await callGeminiWithRetry(aiChatHistory, systemPrompt);
+        aiChatHistory.push({ role: "model", parts: [{ text: replyText }] });
+        const loadingEl = document.getElementById(loadingId);
+        if(loadingEl) {
+          loadingEl.className = "bg-white p-3 rounded-xl shadow-sm border border-gray-100 max-w-[85%] leading-relaxed";
+          loadingEl.innerHTML = `<strong class="text-[#0F3D3E] block mb-1">Ngọc Bích AI:</strong>${formatAiResponse(replyText)}`;
+        }
+      } catch (err) {
+        const fallbackReply = getSmartLocalFallback(text);
+        const loadingEl = document.getElementById(loadingId);
+        if(loadingEl) {
+          loadingEl.className = "bg-white p-3 rounded-xl shadow-sm border border-gray-100 max-w-[85%] leading-relaxed";
+          loadingEl.innerHTML = `<strong class="text-[#0F3D3E] block mb-1">Ngọc Bích AI:</strong>${formatAiResponse(fallbackReply)}`;
+        }
+      }
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    };
+
+    async function callGeminiWithRetry(contents, systemPrompt) {
+      const apiKey = "";
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+      const payload = {
+        contents: contents,
+        systemInstruction: {
+          parts: [{ text: systemPrompt }]
+        }
+      };
+
+      const delays = [1000, 2000, 4000];
+      for (let attempt = 0; attempt <= delays.length; attempt++) {
+        try {
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (!response.ok) throw new Error('HTTP ' + response.status);
+          const result = await response.json();
+          const candidateText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (candidateText) return candidateText;
+          throw new Error('Empty response');
+        } catch (error) {
+          if (attempt === delays.length) throw error;
+          await new Promise(res => setTimeout(res, delays[attempt]));
+        }
+      }
+    }
+
+    function escapeHtml(str) {
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function formatAiResponse(text) {
+      return escapeHtml(text)
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\n/g, '<br>');
+    }
+
+    function getSmartLocalFallback(query) {
+      const q = query.toLowerCase();
+      if(q.includes('đồng nai') || q.includes('văn miếu') || q.includes('chứa chan') || q.includes('tân triều')) {
+        return "Dạ, **Tour Nổi Bật Đồng Nai 2N1Đ (Mã tour: NDSGN01)** khởi hành Thứ 7 hàng tuần từ TP.HCM:\n• **Ngày 1:** Biên Hòa (Phở Ngò) – Văn Miếu Trấn Biên – Làng Bưởi Tân Triều – Long Khánh (KS Hapyson) – Hồ Núi Le.\n• **Ngày 2:** Bánh căn cô Trúc – KDL Núi Chứa Chan (Cáp treo viếng Chùa Bửu Quang, Cây đa 3 gốc 1 ngọn) – Bánh xèo rau rừng – Về TP.HCM.\n• **Giá tour:** 1.735.000 VNĐ/khách (Nhận khách lẻ & nhóm nhỏ ghép đoàn 1–25 khách; giảm 7% từ 10 khách còn **1.614.000 VNĐ/khách**). Hotline: **0397238981**.";
+      }
+      return `Hiện tại Du Lịch Ngọc Bích đang mở bán **${TOURS_DATA.length} chương trình tour** trong nước & quốc tế (Đồng Nai, Miền Tây, Miền Trung - Tây Nguyên, Miền Bắc, Nhật Bản, Hàn Quốc, Thái Lan, Úc, Châu Âu...). Quý khách cần tư vấn tuyến nào hoặc gọi ngay Hotline **0397238981** để được hỗ trợ nhanh nhất ạ!`;
+    }
+  </script>
+</body>
+</html>
